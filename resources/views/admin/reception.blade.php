@@ -47,4 +47,9 @@
     </div>
 </div>
 
+  <!-- add class for element A -->
+  <script>
+  $('#recep').addClass("activePg");
+ </script> 
+
 @endsection

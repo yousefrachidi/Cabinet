@@ -31,4 +31,11 @@
     </div>
 
 </div>
+
+
+<!-- add class for element A -->
+<script>
+  $('#consl').addClass("activePg");
+ </script>
+ 
 @endsection

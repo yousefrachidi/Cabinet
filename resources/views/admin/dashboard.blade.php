@@ -36,4 +36,11 @@
 
 </div>
 
+
+
+  <!-- add class for element A -->
+  <script>
+  $('#dash').addClass("activePg");
+ </script> 
+
 @endsection
