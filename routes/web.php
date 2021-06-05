@@ -21,6 +21,28 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// route patrie admin
+
+
+Route::get('/dashboard',  function(){
+    return view('admin\dashboard');
+} );
+
+Route::get('/consultation',  function(){
+    return view('admin\consultation');
+} );
+
+Route::get('/rendez',  function(){
+    return view('admin\rendez');
+} );
+Route::get('/reception',  function(){
+    return view('admin\reception');
+} );
+
+
+
+
+
+
