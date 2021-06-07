@@ -4,22 +4,29 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
+                @if (session('message_success'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('message_success') }}
+                    </div> 
+                @endif
                 <div class="card">
                     <div class="card-header">Edit admin</div>
                     <div class="card-body">
-
+                        {{-- ***************** a changer ****************** --}}
                         <form action="{{url('/profile/1')}}" method="POST" enctype="multipart/form-data">
 
                             @csrf
                             @method('PUT')
                             <div class="row mt-4 admin-form">
                 
-                                <div class="col-lg-3">
+                                <div class="col-lg-4">
                                     <div id="uploaded_image" class="img-admin mx-auto mt-2"></div>
+                                    <div id="change_image"></div>
+                                    <div id = 'info'></div>
                                     <input type="file" name="image_file" id="image_file">
                                 </div>
                 
-                                <div class="col-lg-9">
+                                <div class="col-lg-8">
                                     <div class="form-group row  mt-2">
                                         <label class="col-md-2 lab-form col-form-label" for="nom"> Nom </label>
                                         <div class="col-md-9">
@@ -66,7 +73,6 @@
                                 <input class="btn btn-primary mb-2 mx-auto"  type="submit" value="Enregistrer"  name="send">
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -116,24 +122,8 @@
             });
 
             $('#image_file').on('change', function() {
-                var file_data = $("#image_file").prop('files')[0];
-                var form_data = new FormData();
-                form_data.append('file', file_data);
-                $.ajax({
-                    url: "/profile/1",
-                    cache: false,
-                    contentType: false,
-                    processData: false,
-                    data: form_data,
-                    method: "PUT",
-                    beforeSend: function() {
-                        $('#uploaded_image').html("<label class='text-success'> Image Uploading...</label>");
-                    },
-                    success: function(data) {
-                        $('#uploaded_image').html(data);
-                    }
-                });
-            }); */
-        });
+                $("#change_image").html('<div class="p-3 m-2 bg-info text-white rounded">l\'image sera changé après l\'enregistrement des données</div>');
+            });
+            });
     </script>
 @endsection

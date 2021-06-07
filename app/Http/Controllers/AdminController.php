@@ -16,14 +16,10 @@ class AdminController extends Controller
 
     public function update(Request $request, $id){
         $admin = Admin::find($id);
-       //dd($request->all());
-        
         
         $admin->nom = $request->input('nom');
         $admin->prenom = $request->input('prenom');
         $admin->email = $request->input('email');
-        
-        //echo "<script> alert('.$request->input('image_file').') </script>";
 
         if($request->pass){
             $admin->mot_de_pass = bcrypt(request('pass'));
@@ -39,8 +35,9 @@ class AdminController extends Controller
 
         $admin->save();
 
-        return $this->edit($id)->with([
-            'admin' => $admin
+        return redirect()->back()->with([
+            'message_success' => 'vos données ont été modifiées avec succès.'
         ]);
     }
+
 }
