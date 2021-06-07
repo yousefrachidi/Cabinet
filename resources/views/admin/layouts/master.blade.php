@@ -63,10 +63,10 @@
     <!--sidebar start-->
     <div class="sidebar">
         <div class="profile_info">
-            <a href="profiel">
+            <a href="/profile/1/edit">
                 <img src="images/logo.png" class="profile_image" alt="">
             </a>
-            <h4>Admin </h4>
+            <h4> Admin </h4>
         </div>
         <a href="dashboard" id="dash"><i class="fas   fa-desktop"></i><span>Dashboard</span></a>
         <a href="consultation" id="consl"> <i class="far  fa-folder-open"></i> <span>Consultation</span></a>

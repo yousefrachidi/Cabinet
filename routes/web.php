@@ -26,6 +26,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // route patrie admin
 
 
+Route::get('/profile/{id}/edit',[App\Http\Controllers\AdminController::class, 'edit']);
+
+Route::PUT('/profile/{id}',[App\Http\Controllers\AdminController::class, 'update']);
+
 Route::get('/dashboard',  function(){
     return view('admin\dashboard');
 } );
@@ -37,6 +41,7 @@ Route::get('/consultation',  function(){
 Route::get('/rendez',  function(){
     return view('admin\rendez');
 } );
+
 Route::get('/reception',  function(){
     return view('admin\reception');
 } );
