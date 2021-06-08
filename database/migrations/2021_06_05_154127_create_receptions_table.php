@@ -17,10 +17,10 @@ class CreateReceptionsTable extends Migration
             $table->id("id_reception");
             $table->string("nom" ,25);
             $table->string("prenom" ,25);
-            $table->string("email" , 25);
+            $table->string("email" , 50)->unique();
             $table->string("mot_de_pass" , 225);
             $table->boolean("status")->default(true);
-            $table->string("image" ,225);
+            $table->string("image" ,225)->nullable();
             $table->timestamps();
         });
     }

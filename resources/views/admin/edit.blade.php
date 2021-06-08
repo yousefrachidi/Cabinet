@@ -20,7 +20,9 @@
                             <div class="row mt-4 admin-form">
                 
                                 <div class="col-lg-4">
-                                    <div id="uploaded_image" class="img-admin mx-auto mt-2"></div>
+                                    <div id="uploaded_image" class="img-admin mx-auto mt-2">
+                                        <img src='{{url('/images/boss.jpg')}}' id='thisimg' class='img-fluid mx-auto img-admin' alt='Admin image'>
+                                    </div>
                                     <div id="change_image"></div>
                                     <div id = 'info'></div>
                                     <input type="file" name="image_file" id="image_file">
@@ -70,9 +72,13 @@
                                     </div>
                                 </div>
                 
-                                <input class="btn btn-primary mb-2 mx-auto"  type="submit" value="Enregistrer"  name="send">
+                                <div class="mx-auto">
+                                    <input class="btn btn-primary mb-2"  type="submit" value="Enregistrer"  name="send">
+                                    <a class="btn btn-danger mb-2" href="/dashboard"> Annuler </a>
+                                </div>
                             </div>
                         </form>
+                        
                     </div>
                 </div>
             </div>
@@ -82,13 +88,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
     <script>
-        var imageAdmin = "<img src='{{url('/images/boss.jpg')}}' id='thisimg' class='img-fluid mx-auto img-admin' alt='Admin image'>";
-
         $(document).ready(function() {
 
             $('#image_file').hide();
             $('.passwd').hide();
-            $('#uploaded_image').html(imageAdmin);
 
             $('#uploaded_image').on('click', function() {
                 $('#image_file').click();
@@ -124,6 +127,6 @@
             $('#image_file').on('change', function() {
                 $("#change_image").html('<div class="p-3 m-2 bg-info text-white rounded">l\'image sera changé après l\'enregistrement des données</div>');
             });
-            });
+        });
     </script>
 @endsection

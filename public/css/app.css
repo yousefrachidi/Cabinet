@@ -10037,3 +10037,7 @@ h3 {
 .res-col-password i:hover {
   cursor: pointer;
 }
+
+.rec-inp{
+  width: 90%;
+}

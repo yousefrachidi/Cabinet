@@ -6,7 +6,7 @@ use App\Models\Admin;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
-{
+{ 
     public function edit($id){
         $admin = Admin::find($id);
         return view('admin.edit')->with([

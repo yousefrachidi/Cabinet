@@ -37,14 +37,16 @@ Route::get('/dashboard',  function(){
 Route::get('/consultation',  function(){
     return view('admin\consultation');
 } );
-
+ 
 Route::get('/rendez',  function(){
     return view('admin\rendez');
 } );
 
-Route::get('/reception',  function(){
-    return view('admin\reception');
-} );
+Route::get('/reception', [App\Http\Controllers\ReceptionController::class, 'index']);
+
+Route::post('/reception', [App\Http\Controllers\ReceptionController::class, 'store']);
+
+Route::get('/reception/{status}/{id}', [App\Http\Controllers\ReceptionController::class, 'update']);
 
 
 
