@@ -1,10 +1,10 @@
-@extends('layouts.master')
+@extends('user.layouts.master')
 
 @section('content')
 <div class="user_parametre">
     <div class="user_links">
         <a class="user-link" href="/user"><i class="fas fa-chart-pie"></i></a>
-        <a class="user-link" href="/consultation"><i class="fas fa-calendar-alt"></i></a>
+        <a class="user-link" href="/consult"><i class="fas fa-calendar-alt"></i></a>
         <a class="user-link" href="/profile"><i class="fas fa-user-cog"></i></a>
         <a class="user-link" href=""><i class="fas fa-sign-out-alt"></i></a>
     </div>
