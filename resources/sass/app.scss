@@ -1,8 +1,20 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
+@import "header";
+@import "footer";
+@import "main";
+@import "login";
+@import "inscription";
+@import "parametre";
+@import "utilisateur";
+@import "consultation";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+//fontawesome
+
+@import "~@fortawesome/fontawesome-free/css/all.css";

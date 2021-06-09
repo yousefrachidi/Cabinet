@@ -1,0 +1,93 @@
+.user_consultation_calendar {
+  margin-top: 3.5rem;
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  position: relative;
+  background-color: #f8f9fa;
+}
+
+.user_calendar {
+  height: 320px;
+  margin-top: 2rem;
+}
+
+.top_calendar {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+    0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+.top_calendar h5 {
+  padding: 1rem;
+  border-bottom: 1px solid #e9ecef;
+  color: #487bea;
+}
+.form_calendar input {
+  width: 200px;
+  height: 40px;
+  padding: 0.2rem 1rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  border-radius: 30px;
+  border: 1px solid #dee2e6;
+}
+.form_calendar input[type="submit"] {
+  background-color: #487bea;
+  color: white;
+  transition: 0.4s;
+  width: 100px;
+}
+.form_calendar input[type="submit"]:hover {
+  background-color: #3f37c9;
+}
+
+.left_calendar {
+  padding: 1rem;
+  margin-top: 1rem;
+  border-radius: 5px;
+  height: 167px;
+  background-color: white;
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+    0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+.left_calendar h5 {
+  padding: 0.5rem;
+  border-bottom: 1px solid #e9ecef;
+  color: #487bea;
+}
+.table_consultation {
+  height: 90px;
+  overflow-y: scroll;
+}
+.table_calendar {
+  max-height: 167px !important;
+  overflow-y: scroll;
+}
+.table_calendar td {
+  padding: 0.5rem 0;
+}
+.calendrier {
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  height: 320px;
+  width: 250px;
+  background-color: #487bea;
+  color: white;
+  margin-left: 1rem;
+  margin-top: 2rem;
+  border-radius: 5px;
+  box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+    0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+
+.prev-btn,
+.next-btn {
+  color: #011a51;
+  font-size: 1.2rem;
+  font-weight: 500;
+}

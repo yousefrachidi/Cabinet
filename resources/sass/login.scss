@@ -1,0 +1,32 @@
+.formlogin {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+        0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+
+    margin-top: 8rem;
+    margin-bottom: 5rem;
+}
+
+.login-image {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+.btn1 {
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 100%;
+    background-color: #19647e;
+    color: white;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.btn1:hover {
+    background: white;
+    border: 1px solid;
+    color: #119da4;
+}

@@ -1,0 +1,191 @@
+.utilisateur {
+    margin-top: 3.5rem;
+    display: flex;
+    justify-content: center;
+    height: 80vh;
+    background-color: #f8f9fa;
+    position: relative;
+}
+.user_links {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 80vh;
+    font-size: 1.5rem;
+    background-color: #001d3d;
+}
+.user-link {
+    padding: 0.5rem;
+    color: #1e6091;
+    transition: 0.5s;
+}
+.user-link:hover {
+    color: #ffc300;
+}
+
+.user_profile {
+    margin-left: 5rem;
+    margin-top: 2rem;
+    height: 220px;
+    width: 400px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+        0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+}
+
+.user_profile_top {
+    background-color: white;
+    padding: 1rem;
+    display: flex;
+    border-radius: 5px 5px 0 0;
+    justify-content: left;
+}
+.user_image {
+    border: 5px solid #1e6091;
+    border-radius: 50%;
+    border: 1px solid #001d3d;
+}
+.user_image_data {
+    padding-left: 0.5rem;
+    font-weight: 600;
+}
+.user_profile_top p {
+    padding: 0;
+    font-size: 0.9rem;
+    margin: 0;
+}
+.user_profile_top p:first-child {
+    color: #001d3d;
+}
+.user_profile_top p:nth-child(2) {
+    color: #495057;
+}
+
+.user_profile_middle {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 1rem;
+}
+.user_profile_middle p {
+    padding: 0;
+    margin: 0;
+}
+.user_profile_middle .far {
+    color: #14213d;
+}
+.user_profile_bottom {
+    padding: 0 1rem;
+}
+.user_profile_bottom p {
+    padding: 0;
+    margin: 0;
+    margin-top: 0.5rem;
+}
+.user_profile_bottom .far {
+    color: #14213d;
+}
+.user_info {
+    width: 500px;
+    margin-top: 2rem;
+    padding: 1rem;
+    height: 427px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+        0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    margin-left: 0.5rem;
+}
+.document_medical {
+    text-align: center;
+    border-bottom: 1px solid #f3f3f4;
+}
+.document_medical h5 {
+    color: #1957db;
+}
+
+.table-files {
+    text-align: left;
+    width: 100%;
+    max-height: 100%;
+    margin-top: 1rem;
+    overflow-y: scroll;
+}
+
+#table-files th,
+#table-files td {
+    padding: 0.5rem;
+    color: #212529;
+    font-size: 1rem;
+}
+#telecharger_fichier,
+#afficher_fichier,
+#supprimer_fichier {
+    font-size: 1.4rem;
+}
+#telecharger_fichier {
+    color: #007f5f;
+}
+#telecharger_fichier:hover {
+    color: #004b23;
+}
+#supprimer_fichier {
+    color: red;
+}
+#supprimer_fichier:hover {
+    color: #fe5f55;
+}
+/***********************Consultation**************************/
+.user_consultation {
+    height: 200px;
+    margin-top: 2rem;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),
+        0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%);
+    padding: 1rem;
+}
+.user_consultation_head {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #f3f3f4;
+}
+.user_consultation_head h5 {
+    color: #1957db;
+}
+.form_user_consultation {
+    margin-top: 1rem;
+    padding: 1rem;
+
+    text-align: center;
+}
+.form_user_consultation input {
+    height: 40px;
+    padding: 0.2rem 1rem;
+}
+.form_user_consultation input[type="text"] {
+    border: none;
+    outline: none;
+    background-color: #eeeeee;
+    border-radius: 30px;
+}
+.form_user_consultation input[type="text"]:active,
+.form_user_consultation input[type="text"]:focus {
+    outline: none;
+}
+.form_user_consultation input[type="submit"] {
+    border-radius: 30px;
+    width: 120px;
+    border: none;
+    background-color: #0d41e1;
+    color: #fff;
+    transition: 0.4s;
+    font-size: 1.1rem;
+}
+.form_user_consultation input[type="submit"]:hover {
+    background-color: #0c63e7;
+}
