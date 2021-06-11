@@ -19,31 +19,35 @@
             <div class="col-lg-8 ml-4">
                 <form method="POST" action="/reception">
                     @csrf
-                    <div class="form-group row mt-4">
+                    <div class="form-group row">
                         <label class="col-sm-3 col-form-label lab-form" for="Prenom">Prénom</label>
                         <div class="col-sm-7">
-                            <input type="text" name="prenom" placeholder=" Prénom" class="form-control rec-inp" id="Prenom">
+                            <input type="text" name="prenom" placeholder=" Prénom" class="form-control rec-inp {{$errors->first('prenom') ? "is-invalid" : ""}}" id="Prenom" value={{old("prenom")}}>
+                            <small class="text-danger">{{ $errors->first('prenom')}}</small>
                         </div>
                     </div>
 
-                    <div class="form-group row mt-4">
+                    <div class="form-group row">
                         <label class="col-sm-3 col-form-label lab-form" for="Nom">Nom</label>
                         <div class="col-sm-7">
-                            <input type="text" name="nom" placeholder=" Nom" class="form-control rec-inp">
+                            <input type="text" name="nom" placeholder="Nom" class="form-control rec-inp {{$errors->first('nom') ? "is-invalid" : ""}}" value={{old("nom")}}>
+                            <small class="text-danger">{{ $errors->first('nom')}}</small>
                         </div>
                     </div>
 
-                    <div class="form-group row mt-4">
+                    <div class="form-group row">
                         <label class=" col-sm-3 col-form-label lab-form" for="email">Email</label>
                         <div class="col-sm-7">
-                            <input type="email" name="email" placeholder="address mail" class="form-control rec-inp">
+                            <input type="email" name="email" placeholder="address mail" class="form-control rec-inp {{$errors->first('email') ? "is-invalid" : ""}}" value={{old("email")}}>
+                            <small class="text-danger">{{ $errors->first('email')}}</small>
                         </div>
                     </div>
 
-                    <div class="form-group row mt-4">
+                    <div class="form-group row">
                         <label class="col-sm-3 col-form-label lab-form" for="password">Mot de passe</label>
                         <div class="col-sm-7">
-                            <input type="password" name="password" placeholder="Mot de passe" class="form-control rec-inp">
+                            <input type="password" name="password" placeholder="Mot de passe" class="form-control rec-inp {{$errors->first('password') ? "is-invalid" : ""}}">
+                            <small class="text-danger">{{ $errors->first('password')}}</small>
                         </div>
                     </div>
 

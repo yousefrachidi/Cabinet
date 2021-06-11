@@ -18,9 +18,9 @@ class ReceptionController extends Controller
     {
         $request->validate([
             'nom' => 'required|min:3',
-            'prenom' => 'required|min:5',
-            'email' => 'required',
-            'mot_de_pass' => 'required|min:8'
+            'prenom' => 'required|min:3',
+            'email' => 'required|email',
+            'password' => 'required|min:8'
         ]);
 
         $reception = new Reception([

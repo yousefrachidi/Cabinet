@@ -63,3 +63,5 @@ Route::get('/reception', [App\Http\Controllers\ReceptionController::class, 'inde
 Route::post('/reception', [App\Http\Controllers\ReceptionController::class, 'store']);
 
 Route::get('/reception/{status}/{id}', [App\Http\Controllers\ReceptionController::class, 'update']);
+
+Route::resource('medicament', App\Http\Controllers\MedicamentController::class);

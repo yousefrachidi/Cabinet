@@ -1,5 +1,5 @@
-@extends('layouts.app')
-
+@extends('admin.layouts.more')
+@section('title','Modifie')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -78,7 +78,6 @@
                                 </div>
                             </div>
                         </form>
-                        
                     </div>
                 </div>
             </div>

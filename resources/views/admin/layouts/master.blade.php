@@ -20,6 +20,12 @@
     <link rel="stylesheet" href="css/uikit.min.css" />
     <script src="js/uikit.min.js"></script>
     <script src="js/uikit-icons.min.js"></script>
+
+    {{-- data table --}}
+    <link rel="stylesheet" href="css/datatables.css">
+    <script src="js/datatables.min.js"></script>
+    <script src="js/cdn.datatables.js"></script>
+
     <!--   style  -->
     <link rel="stylesheet" href="css/style.css">
 
@@ -73,6 +79,7 @@
         <a href="consultation" id="consl"> <i class="far  fa-folder-open"></i> <span>Consultation</span></a>
         <a href="rendez" id="rende"><i class="fas fa-calendar-check"></i> <span>Rendez-vous</span></a>
         <a href="reception" id="recep"><i class="fas fa-user-plus"></i><span>Reception</span></a>
+        <a href="medicament" id="med"><i class="fas fa-pills"></i><span>Medicaments</span></a>
         <a href="#" id="r"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
     </div>
     <!--sidebar end-->
