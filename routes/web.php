@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PatientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,34 +13,32 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//user routes------------------------
+//User routes--------------------------
+
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/login', function () {
-    return view('user.login');
-});
 
-Route::get('/register', function () {
-    return view('user.register');
-});
 Route::get('/consult', function () {
     return view('user.consultation');
 });
+
 Route::get('/profile', function () {
     return view('user.profile');
 });
+
 Route::get('/user', function () {
     return view('user.utilisateur');
 });
-//------------------------------------
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
+Route::get('/login', [PatientController::class, 'login'])->name('login');
+Route::get('/register', [PatientController::class, 'register'])->name('register');
+Route::post('/save', [PatientController::class, 'save'])->name('save');
 
-// route patrie admin
+
+// route patrie admin-------------------------------------------------------------------
 
 
 Route::get('/profile/{id}/edit', [App\Http\Controllers\AdminController::class, 'edit']);

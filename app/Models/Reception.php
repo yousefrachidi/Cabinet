@@ -15,6 +15,6 @@ class Reception extends Model
         'email',
         'mot_de_pass',
         'status',
-        'image' 
+        'image'
     ];
 }

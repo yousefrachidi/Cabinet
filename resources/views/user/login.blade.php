@@ -1,7 +1,6 @@
 @extends('user.layouts.master')
 
 @section('content')
-
 <section class="formlogin mx-5">
     <div class="container">
         <div class="row no-gutters">
@@ -10,7 +9,7 @@
             </div>
             <div class="col-lg-7 px-5 pt-5">
                 <img src="{{asset('images/second.png')}}" width="320" class="py-2">
-                <h4>Authentifier vous:</h4>
+                <h4>Connecter vous:</h4>
                 <form action="" method="post">
                     <div class="form-row">
                         <div class="col-lg-7">
@@ -28,7 +27,7 @@
                         </div>
                     </div>
                     <a href="#">Mot de passe oublier?</a> <!-- add the link -->
-                    <p>Creer un compte ? <a href="#">nouveau compte</a></p> <!-- add the link -->
+                    <p>Créer un <a href="{{route('register')}}">compte</a></p> <!-- add the link -->
                 </form>
             </div>
         </div>
