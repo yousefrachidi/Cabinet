@@ -64,7 +64,7 @@ class PatientController extends Controller
             $patient->email = $req->email;
             $patient->age = $req->age;
             $patient->tel = $req->tel;
-            $patient->mot_de_pass = Hash::make($req->password_two);
+            $patient->mot_de_pass = $req->password_two;
             $patient->sexe = $req->sexe;
             $patient->image = null;
             $save = $patient->save();
@@ -93,7 +93,7 @@ class PatientController extends Controller
                     return back()->with('erreur', 'utilisateur non trouve!');
                 } else {
                     //verifier le mot de passe Reception
-                    if (Hash::check($req->password, $reception->mot_de_pass)) {
+                    if ($req->password == $reception->mot_de_pass) {
                         //enregistrer le id dans la session de Reception
                         $req->session()->put('reception', $reception->id);
                         //rediriger vers le patient profile
@@ -105,7 +105,7 @@ class PatientController extends Controller
                 }
             } else {
                 //verifier le mot de passe Admin
-                if (Hash::check($req->password, $admin->mot_de_pass)) {
+                if ($req->password == $admin->mot_de_pass) {
                     //enregistrer le id dans la session de admin
                     $req->session()->put('admin', $admin->id);
                     //rediriger vers le patient profile
@@ -117,7 +117,7 @@ class PatientController extends Controller
             }
         } else {
             //verifier le mot de passe de patient
-            if (Hash::check($req->password, $patient->mot_de_pass)) {
+            if ($req->password == $patient->mot_de_pass) {
                 //enregistrer le cin dans la session de patient
                 $req->session()->put('patient', $patient->cin);
                 //rediriger vers le patient profile
