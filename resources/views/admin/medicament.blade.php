@@ -22,7 +22,9 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label lab-form" for="nom">nom de médicament</label>
                         <div class="col-sm-7">
-                            <input type="text" name="nom" class="form-control rec-inp {{$errors->first('nom') ? "is-invalid" : ""}}" id="Prenom" value={{old("nom")}}>
+                            <input type="text" name="nom"
+                                class="form-control rec-inp {{$errors->first('nom') ? "is-invalid" : ""}}" id="Prenom"
+                                value={{old("nom")}}>
                             <small class="text-danger">{{ $errors->first('nom')}}</small>
                         </div>
                     </div>
@@ -30,7 +32,9 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label lab-form" for="designation">Designation</label>
                         <div class="col-sm-7">
-                            <input type="text" name="designation" id="designation" class="form-control rec-inp {{$errors->first('designation') ? "is-invalid" : ""}}" value={{old("designation")}}>
+                            <input type="text" name="designation" id="designation"
+                                class="form-control rec-inp {{$errors->first('designation') ? "is-invalid" : ""}}"
+                                value={{old("designation")}}>
                             <small class="text-danger">{{ $errors->first('designation')}}</small>
                         </div>
                     </div>
@@ -113,8 +117,14 @@
                     sortDescending: ": activer pour trier la colonne par ordre décroissant"
                 }
             }
-        });        
+        });     
+        $("#medicaments").css("width","90%").css("margin","30px");
     } );
+</script>
+
+<!-- add class for element A -->
+<script>
+    $('#med').addClass("activePg");
 </script>
 
 @endsection

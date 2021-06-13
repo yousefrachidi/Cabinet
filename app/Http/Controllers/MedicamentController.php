@@ -24,9 +24,9 @@ class MedicamentController extends Controller
         ]);
 
         $medicament = new Medicament([
-            "nom" => $request->nom ,
-            "designation" => $request->designation,
-            "type" => $request->type 
+            'nom' => $request->nom ,
+            'designation' => $request->designation,
+            'type' => $request->type 
         ]);
         $medicament->save();
 
