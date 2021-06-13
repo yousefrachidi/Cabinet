@@ -5084,6 +5084,7 @@ html {
   opacity: 0.7;
   font-weight: 500;
   height: 40px;
+  font-size: 1rem;
 }
 
 .form-consultation a {
@@ -5630,14 +5631,6 @@ html {
   color: #119da4;
 }
 
-.user_input input {
-  font-size: 1.1rem;
-}
-
-.btn_inscription {
-  margin-top: 1rem;
-}
-
 .user_parametre {
   margin-top: 3.5rem;
   position: relative;
@@ -5739,6 +5732,28 @@ html {
 
 #modifier-account:hover {
   background-color: #6c757d;
+}
+
+.user_parametre {
+  height: auto;
+  margin-bottom: 2rem;
+  background-color: transparent;
+}
+
+.form_modify_info {
+  margin-top: 3rem;
+  height: auto;
+  width: 420px;
+  padding: 2rem;
+  background-color: white;
+}
+
+.user_input input {
+  font-size: 1rem;
+}
+
+.btn_inscription {
+  margin-top: 1rem;
 }
 
 .utilisateur {
@@ -16060,43 +16075,4 @@ h3 {
     color: inherit;
     border-color: #dee2e6;
   }
-}
-
-.img-admin {
-  display: block;
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  cursor: pointer;
-  border-radius: 50%;
-}
-
-.admin-form {
-  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
-}
-
-.lab-form {
-  padding-right: 5px !important;
-}
-
-.status-btn {
-  width: 7em;
-}
-
-.res-col-password {
-  width: 15em;
-}
-
-.res-col-password input {
-  border: none;
-  background: transparent;
-  width: 10em;
-}
-
-.res-col-password i:hover {
-  cursor: pointer;
-}
-
-.rec-inp{
-  width: 90%;
 }
