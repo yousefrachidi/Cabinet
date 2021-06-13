@@ -22,7 +22,9 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label lab-form" for="Prenom">Prénom</label>
                         <div class="col-sm-7">
-                            <input type="text" name="prenom" placeholder=" Prénom" class="form-control rec-inp {{$errors->first('prenom') ? "is-invalid" : ""}}" id="Prenom" value={{old("prenom")}}>
+                            <input type="text" name="prenom" placeholder=" Prénom"
+                                class="form-control rec-inp {{$errors->first('prenom') ? "is-invalid" : ""}}"
+                                id="Prenom" value={{old("prenom")}}>
                             <small class="text-danger">{{ $errors->first('prenom')}}</small>
                         </div>
                     </div>
@@ -30,7 +32,9 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label lab-form" for="Nom">Nom</label>
                         <div class="col-sm-7">
-                            <input type="text" name="nom" placeholder="Nom" class="form-control rec-inp {{$errors->first('nom') ? "is-invalid" : ""}}" value={{old("nom")}}>
+                            <input type="text" name="nom" placeholder="Nom"
+                                class="form-control rec-inp {{$errors->first('nom') ? "is-invalid" : ""}}"
+                                value={{old("nom")}}>
                             <small class="text-danger">{{ $errors->first('nom')}}</small>
                         </div>
                     </div>
@@ -38,7 +42,9 @@
                     <div class="form-group row">
                         <label class=" col-sm-3 col-form-label lab-form" for="email">Email</label>
                         <div class="col-sm-7">
-                            <input type="email" name="email" placeholder="address mail" class="form-control rec-inp {{$errors->first('email') ? "is-invalid" : ""}}" value={{old("email")}}>
+                            <input type="email" name="email" placeholder="address mail"
+                                class="form-control rec-inp {{$errors->first('email') ? "is-invalid" : ""}}"
+                                value={{old("email")}}>
                             <small class="text-danger">{{ $errors->first('email')}}</small>
                         </div>
                     </div>
@@ -46,7 +52,8 @@
                     <div class="form-group row">
                         <label class="col-sm-3 col-form-label lab-form" for="password">Mot de passe</label>
                         <div class="col-sm-7">
-                            <input type="password" name="password" placeholder="Mot de passe" class="form-control rec-inp {{$errors->first('password') ? "is-invalid" : ""}}">
+                            <input type="password" name="password" placeholder="Mot de passe"
+                                class="form-control rec-inp {{$errors->first('password') ? "is-invalid" : ""}}">
                             <small class="text-danger">{{ $errors->first('password')}}</small>
                         </div>
                     </div>
@@ -93,7 +100,8 @@
                             <i id="pass-id{{$i}}" onclick="switchs({{$i}})" class="fas fa-eye"></i>
                         </td>
                         <td>
-                            <a class="btn {{$btnColor}} status-btn" onclick="confirmStatus({{$reception->status}}, {{$reception->id_reception}})">{{$btnText}}</a>
+                            <a class="btn {{$btnColor}} status-btn"
+                                onclick="confirmStatus({{$reception->status}}, {{$reception->id_reception}})">{{$btnText}}</a>
                         </td>
                     </tr>
                     <?php $i++ ?>
@@ -147,6 +155,11 @@
             icon.addClass("fas fa-eye");
         }
     }
+</script>
+
+<!-- add class for element A -->
+<script>
+    $('#recep').addClass("activePg");
 </script>
 
 @endsection
