@@ -10,17 +10,25 @@
             <div class="col-lg-7 px-5 pt-5">
                 <img src="{{asset('images/second.png')}}" width="320" class="py-2">
                 <h4>Connecter vous:</h4>
-                <form action="" method="post">
+                <form action="{{route('check')}}" method="post">
+                    @csrf
+                    @if(Session::get('erreur'))
+                    <div class="alert alert-danger">
+                        {{Session::get('erreur')}}
+                    </div>
+                    @endif
                     <div class="form-row">
                         <div class="col-lg-7">
-                            <input type="email" placeholder="Email" class="form-control my-3 p-4">
+                            <input type="email" placeholder="Email" class="form-control my-3 p-4" name="email" value="{{old('email')}}">
                         </div>
                     </div>
+                    <span class="text-danger">@error('email'){{$message}}@enderror</span>
                     <div class="form-row">
                         <div class="col-lg-7">
-                            <input type="password" placeholder="Mot de passe" class="form-control my-3 p-4">
+                            <input type="password" placeholder="Mot de passe" name="password" class="form-control my-3 p-4">
                         </div>
                     </div>
+                    <span class="text-danger">@error('password'){{$message}}@enderror</span>
                     <div class="form-row">
                         <div class="col-lg-7">
                             <button type="submit" class="btn1 mt-3 mb-5">Login</button>

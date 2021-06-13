@@ -5,8 +5,8 @@
     <div class="user_links">
         <a class="user-link" href="/user"><i class="fas fa-chart-pie"></i></a>
         <a class="user-link" href="/consult"><i class="fas fa-calendar-alt"></i></a>
-        <a class="user-link" href="/profile"><i class="fas fa-user-cog"></i></a>
-        <a class="user-link" href=""><i class="fas fa-sign-out-alt"></i></a>
+        <a class="user-link" href="{{route('monprofile')}}"><i class="fas fa-user-cog"></i></a>
+        <a class="user-link" href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i></a>
     </div>
     <form action="" method="POST" class="form_modify_info" enctype="multipart/form-data">
         <h5>Modifier votre compte:</h5>
@@ -16,15 +16,15 @@
             <label id="labelimage" for="userimage"><i class="fas fa-edit fa-1x"></i></label>
         </div>
         <div class="form-group  user_input">
-            <input type="text" disabled class="u_icons" id="nom" name="nom" placeholder="Votre nom" autocomplete="off">
+            <input type="text" disabled class="u_icons" id="nom" name="nom" placeholder="Votre nom" autocomplete="off" value="{{$patientInfo['nom']}}">
             <i class="far fa-user" id="user-icon"></i>
         </div>
         <div class="form-group user_input">
-            <input type="text" disabled class="u_icons" id="email" name="email" placeholder="Email" autocomplete="off">
+            <input type="text" disabled class="u_icons" id="email" name="email" placeholder="Email" autocomplete="off" value="{{$patientInfo['email']}}">
             <i class="far fa-envelope" id="email-icon"></i>
         </div>
         <div class="form-group user_input">
-            <input type="text" disabled class="u_icons" id="tel" name="tel" placeholder="Téléphone" autocomplete="off">
+            <input type="text" disabled class="u_icons" id="tel" name="tel" placeholder="Téléphone" autocomplete="off" value="{{$patientInfo['tel']}}">
             <i class="fas fa-lock" id="tel-icon"></i>
         </div>
         <div class="user_password">
@@ -39,11 +39,11 @@
             </div>
         </div>
         <div class="form-group user_input">
-            <input type="text" disabled class="u_icons" id="age" name="age" placeholder="Votre age" autocomplete="off">
+            <input type="text" disabled class="u_icons" id="age" name="age" placeholder="Votre age" autocomplete="off" value="{{$patientInfo['age']}}">
             <i class="far fa-user" id="age-icon"></i>
         </div>
         <div class="form-group user_input">
-            <input type="text" disabled class="u_icons" id="cine" name="cine" placeholder="Votre CINE" autocomplete="off">
+            <input type="text" disabled class="u_icons" id="cine" name="cine" placeholder="Votre CINE" autocomplete="off" value="{{$patientInfo['cin']}}">
             <i class="far fa-address-card" id="cine-icon"></i>
         </div>
         <div class="user_modify_btn">

@@ -5,8 +5,8 @@
     <div class="user_links">
         <a class="user-link" href="/user"><i class="fas fa-chart-pie"></i></a>
         <a class="user-link" href="/consult"><i class="fas fa-calendar-alt"></i></a>
-        <a class="user-link" href="/profile"><i class="fas fa-user-cog"></i></a>
-        <a class="user-link" href=""><i class="fas fa-sign-out-alt"></i></a>
+        <a class="user-link" href="{{route('monprofile')}}"><i class="fas fa-user-cog"></i></a>
+        <a class="user-link" href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i></a>
     </div>
     <div class=" user_profile">
         <div class="user_p">
@@ -15,13 +15,13 @@
                     <img id="profile-image" src="{{asset('images/user.png')}}" alt="" width="60">
                 </div>
                 <div class="user_image_data">
-                    <p>Mourad El Ouasti</p>
-                    <p>Ab4515545</p>
+                    <p>{{$patientInfo['nom']}}</p>
+                    <p>{{$patientInfo['cin']}}</p>
                 </div>
             </div>
             <div class="user_profile_middle">
-                <p>Age: 70ans</p>
-                <p><i style=" color:#0466c8;" class="fas fa-weight"></i> Poid: 80kg</p>
+                <p>Age: {{$patientInfo['age']}}ans</p>
+
             </div>
             <div class="user_profile_bottom">
                 <p><i style=" color:#0466c8;" class="fas fa-ruler-vertical"></i> Taille: 1m70</p>
