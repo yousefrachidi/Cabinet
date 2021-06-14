@@ -7,6 +7,15 @@ use App\Models\Patient;
 
 class PatientController extends Controller
 {
+
+
+    public function index(){
+        $patients = Patient::select('cin','nom','age','tel','sexe')->get();
+        return view('admin.patient')->with([
+            'patients' => $patients
+        ]);
+    }
+
     function login()
     {
         return view('user.login');
@@ -42,7 +51,7 @@ class PatientController extends Controller
         if ($save) {
             return back()->with('success', 'Votre compte est creer avec succes');
         } else {
-            return back()->with('erreur', 'Erreur d enregistrement veuiller verifier les donnees');
+            return back()->with('erreur', 'Erreur d\'enregistrement veuiller verifier les donnees');
         }
     }
 }

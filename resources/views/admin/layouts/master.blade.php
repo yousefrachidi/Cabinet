@@ -29,8 +29,6 @@
     <!--   style  -->
     <link rel="stylesheet" href="css/style.css">
 
-
-
 </head>
 
 <body>
@@ -63,7 +61,8 @@
             <a href="consultation.php"> <i class="far fa-folder-open"></i> <span>Consultation</span></a>
             <a href="rendez.php"><i class="fas fa-calendar-check"></i> <span>Rendez-vous</span></a>
             <a href="reception.php"><i class="fas fa-user-plus"></i><span>Reception</span></a>
-            <a href="#"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
+            <a href="medicament"><i class="fas fa-pills"></i><span>Médicaments</span></a>
+            <a href="patient"><i class="fas fa-users"></i><span>Patient</span></a>
         </div>
     </div>
     <!--mobile navigation bar end-->
@@ -80,7 +79,7 @@
         <a href="rendez" id="rende"><i class="fas fa-calendar-check"></i> <span>Rendez-vous</span></a>
         <a href="reception" id="recep"><i class="fas fa-user-plus"></i><span>Reception</span></a>
         <a href="medicament" id="med"><i class="fas fa-pills"></i><span>Médicaments</span></a>
-        <a href="#" id="r"><i class="fas fa-sliders-h"></i><span>Settings</span></a>
+        <a href="patient" id="pat"><i class="fas fa-users"></i><span>Patient</span></a>
     </div>
     <!--sidebar end-->
 
