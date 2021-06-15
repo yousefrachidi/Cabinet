@@ -14,6 +14,9 @@ use App\Http\Controllers\PatientController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
+
 //User routes--------------------------
 
 Route::get('/', function () {
@@ -21,9 +24,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/consult', function () {
-    return view('user.consultation');
-});
+
 
 
 
@@ -36,7 +37,7 @@ Route::get('/user', function () {
 Route::post('/save', [PatientController::class, 'save'])->name('save');
 Route::post('/check', [PatientController::class, 'check'])->name('check');
 Route::get('/logout', [PatientController::class, 'logout'])->name('logout');
-Route::post('/modifier', [PatientController::class, 'updatePatient'])->name('update');
+Route::post('/modifier', [PatientController::class, 'updatePatient'])->name('modifierCompte');
 Route::post('/send', [HomeController::class, 'send'])->name('contactus');
 Route::post('/rendezvous', [HomeController::class, 'rendezvous'])->name('rendezvous');
 
@@ -45,9 +46,17 @@ Route::group(['middleware' => ['authentification']], function () {
     Route::get('/register', [PatientController::class, 'register'])->name('register');
     Route::get('/mon_profile', [PatientController::class, 'monProfile'])->name('monprofile');
     Route::get('/user', [PatientController::class, 'monstatus'])->name('monstatus');
+    Route::get('/consult', [PatientController::class, 'consult'])->name('consult');
 });
 
-// route patrie admin-------------------------------------------------------------------
+
+
+
+
+
+// route partie admin-------------------------------------------------------------------
+
+
 
 
 Route::get('/profile/{id}/edit', [App\Http\Controllers\AdminController::class, 'edit']);

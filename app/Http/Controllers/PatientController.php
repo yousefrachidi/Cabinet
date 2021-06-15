@@ -38,6 +38,10 @@ class PatientController extends Controller
         $data = ['patientInfo' => Patient::where('cin', '=', session('patient'))->first()];
         return view('user.utilisateur', $data);
     }
+    function consult()
+    {
+        return view('user.consultation');
+    }
 
 
     function save(Request $req)
@@ -79,6 +83,7 @@ class PatientController extends Controller
     }
     function updatePatient(Request $req)
     {
+        return $req->input();
     }
 
 

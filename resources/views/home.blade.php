@@ -47,7 +47,7 @@
     <div class="services_container text-center">
         <div class="service ">
             <i class="fas fa-headset fa-2x"></i>
-            <p>Par mail, ou par téléphone, on se charge de vous rappeler votre RDV. </p>
+            <p>On se charge de vous rappeler votre RDV. </p>
         </div>
         <div class="service">
             <i class="fas fa-calendar-alt fa-2x"></i>
@@ -56,7 +56,7 @@
 
         <div class="service">
             <i class="fas fa-clock fa-2x"></i>
-            <p>Prenez un rendez-vous au cabinet gratuitement 24h/24 et 7j/7.</p>
+            <p>Prenez un rendez-vous gratuitement 24h/24 et 7j/7.</p>
         </div>
 
     </div>

@@ -12,7 +12,7 @@
             </form>
         </div>
         <div class="left_calendar">
-            <h5><i class="fad fa-history fa-1x"></i> Historique de Consultation</h5>
+            <h5><i class="fas fa-history fa-1x"></i> Historique de Consultation</h5>
             <div class="table_consultation">
                 <table class="table_calendar">
                     <tr>
@@ -33,6 +33,7 @@
 
     </div>
 </div>
+<script src="{{asset('js/dycalendar.js')}}"></script>
 <script>
     $("#calendar-date").dateDropper({
         animate: 'true',

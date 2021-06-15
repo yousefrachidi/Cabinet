@@ -31,13 +31,13 @@ function scrolleffect(){
 	const image=document.querySelector('.why_image');
 	
 
-	if(window.scrollY>=400){
+	if(window.scrollY>=360){
 		list.style.opacity='1';
 		list.style.transform='translateX(0px)';
 		list.style.transition='.7s ease-in-out';
 	}
 	
-	if(window.scrollY>=800){
+	if(window.scrollY>=720){
 		image.style.opacity='1';
 		image.style.transform='translateX(0px)';
 		image.style.transition='.7s ease-in-out';

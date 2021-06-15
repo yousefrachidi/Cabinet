@@ -3,7 +3,7 @@
 @section('content')
 <div class="user_parametre">
 
-    <form action="{{route('update')}}" method="POST" class="form_modify_info" enctype="multipart/form-data">
+    <form action="{{route('modifierCompte')}}" method="POST" class="form_modify_info" enctype="multipart/form-data">
         <h5>Modifier votre compte:</h5>
         @csrf
         <div class="u_image">
