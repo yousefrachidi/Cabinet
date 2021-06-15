@@ -2,14 +2,10 @@
 
 @section('content')
 <div class="user_parametre">
-    <div class="user_links">
-        <a class="user-link" href="/user"><i class="fas fa-chart-pie"></i></a>
-        <a class="user-link" href="/consult"><i class="fas fa-calendar-alt"></i></a>
-        <a class="user-link" href="{{route('monprofile')}}"><i class="fas fa-user-cog"></i></a>
-        <a class="user-link" href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i></a>
-    </div>
-    <form action="" method="POST" class="form_modify_info" enctype="multipart/form-data">
+
+    <form action="{{route('update')}}" method="POST" class="form_modify_info" enctype="multipart/form-data">
         <h5>Modifier votre compte:</h5>
+        @csrf
         <div class="u_image">
             <img src="{{asset('images/user.png')}}" width="70" alt="user image" id="user-old-image">
             <input type="file" class="u_icons" disabled id="userimage" name="userimage" accept="image/*">
@@ -25,7 +21,7 @@
         </div>
         <div class="form-group user_input">
             <input type="text" disabled class="u_icons" id="tel" name="tel" placeholder="Téléphone" autocomplete="off" value="{{$patientInfo['tel']}}">
-            <i class="fas fa-lock" id="tel-icon"></i>
+            <i class="fas fa-phone-alt" id="tel-icon"></i>
         </div>
         <div class="user_password">
             <div class="form-group user_input">

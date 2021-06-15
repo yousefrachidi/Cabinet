@@ -16,9 +16,12 @@ class Auth
      */
     public function handle(Request $request, Closure $next)
     {
+
         if (!session()->has('patient') && ($request->path() != 'login' && $request->path() != 'register')) {
             return redirect('/login')->with('erreur', 'Identifier vous!');
         }
+
+
         if (session()->has('patient') && ($request->path() == 'login' || $request->path() == 'register')) {
             return back();
         }

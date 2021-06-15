@@ -9,21 +9,26 @@
                     <p>Notre plateforme de prise de rendez-vous en ligne est disponibles gratuitement 24h/24 et 7j/7</p>
         </div>
         <div class="form">
-            <form action="" method="POST" class="form-consultation text-center">
+            <form action="{{route('rendezvous')}}" method="POST" class="form-consultation text-center">
+                @csrf
+
                 <div class="form-group ">
                     <input type="text" id="nom" name="nom" placeholder="Votre nom" autocomplete="off">
                     <i class="far fa-user" id="user-icon"></i>
                 </div>
+                <span class="text-danger">@error('nom'){{$message}}@enderror</span>
                 <div class="form-group">
                     <input type="text" id="email" name="email" placeholder="Email" autocomplete="off">
                     <i class="far fa-envelope" id="email-icon"></i>
                 </div>
+                <span class="text-danger">@error('email'){{$message}}@enderror</span>
                 <div class="form-group">
                     <input type="text" id="tel" name="tel" placeholder="Téléphone" autocomplete="off">
                     <i class="fas fa-phone-alt" id="tel-icon"></i>
                 </div>
+                <span class="text-danger">@error('tel'){{$message}}@enderror</span>
                 <div class="form-group">
-                    <input type="text" id="calendar" name="calendar">
+                    <input type="text" id="calendar" name="calendar" value="">
                     <i class="far fa-calendar-alt" id="calendar-icon"></i>
                 </div>
                 <div class="form-group">
@@ -113,24 +118,37 @@
                     <i class="fas fa-envelope"></i> contact@medicale.ma
                 </div>
             </div>
-            <form class="msg_form" action="" method="POST">
+            <form class="msg_form" action="{{route('contactus')}}" method="POST">
                 <h5>Envoyer un message</h5>
+                @csrf
+                @if(Session::get('message_sent'))
+                <div class="alert alert-success" role="alert">{{Session::get('message_sent')}}</div>
+                @endif
                 <div class="form-g">
-                    <input type="text" id="nom-contact" placeholder="Votre Nom" autocomplete="off">
+                    <input type="text" id="nom-contact" placeholder="Votre Nom" autocomplete="off" name="nom">
                     <i class="fas fa-user-alt icon-c" id="iconuser"></i>
                 </div>
+                <span class="text-danger erreur-text nom_erreur"></span>
+
                 <div class="form-g">
-                    <input type="text" id="tel-contact" placeholder="Votre telephone" autocomplete="off">
+                    <input type="text" id="tel-contact" placeholder="Votre telephone" autocomplete="off" name="tel">
                     <i class="fas fa-phone-alt icon-c" id="icontel"></i>
                 </div>
+                <span class="text-danger erreur-text tel_erreur"></span>
+
                 <div class="form-g">
                     <textarea name="message" id="msg-contact" cols="30" rows="7" placeholder="Votre message"></textarea>
                 </div>
+                <span class="text-danger erreur-text message_erreur"></span>
+
                 <button type="submit" id="send-message">Envoyer</button>
             </form>
         </div>
     </div>
+
+
 </section>
+
 <script src="{{asset('js/main.js')}}"></script>
 <script>
     $("#calendar").dateDropper({

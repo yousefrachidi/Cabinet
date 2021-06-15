@@ -8,6 +8,8 @@
     <script src="{{asset('js/app.js')}}"></script>
     <link rel="stylesheet" href="{{asset('assets/DateDropper/datedropper.css')}}">
     <script src="{{asset('assets/DateDropper/datedropper.js')}}"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
 <body>
@@ -40,6 +42,22 @@
                                 <li class="drop_item">
                                     <a class="lien drop_lien" href="/register"><i class="fas fa-plus-circle"></i> Inscription</a>
                                 </li>
+                            </ul>
+                        </li>
+                        @else
+                        <li class="menu">
+                            <a class="lien account-lien" href="{{route('monstatus')}}"><i class="far fa-user-circle"></i> Account <i class="fas fa-caret-down" id="down-icon"></i></a>
+                            <ul class="account_menu">
+                                <li class="drop_item">
+                                    <a class="lien drop_lien" href="{{route('monprofile')}}"><i class="fas fa-user-cog"></i> Profile</a>
+                                </li>
+                                <li class="drop_item">
+                                    <a class="lien drop_lien" href="{{route('monstatus')}}"><i class="fas fa-chart-pie"></i> Status</a>
+                                </li>
+                                <li class="drop_item">
+                                    <a class="lien drop_lien" href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                                </li>
+
                             </ul>
                         </li>
                         @endif

@@ -53,6 +53,8 @@ class PatientController extends Controller
             'cin' => 'required|unique:patients',
         ]);
 
+
+
         //insertion dans le base de donnees
 
         if ($req->password_two != $req->password_one) {
@@ -75,6 +77,9 @@ class PatientController extends Controller
             }
         }
     }
+    function updatePatient(Request $req)
+    {
+    }
 
 
     function check(Request $req)
@@ -90,13 +95,13 @@ class PatientController extends Controller
             if (!$admin) {
                 $reception = Reception::where('email', '=', $req->email)->first();
                 if (!$reception) {
-                    return back()->with('erreur', 'utilisateur non trouve!');
+                    return back()->with('erreur', 'L\'adresse électronique que vous avez saisie n\'est associée à aucun compte!');
                 } else {
                     //verifier le mot de passe Reception
                     if ($req->password == $reception->mot_de_pass) {
                         //enregistrer le id dans la session de Reception
                         $req->session()->put('reception', $reception->id);
-                        //rediriger vers le patient profile
+                        //rediriger vers le Reception 
                         return redirect('/dashboard');
                     } else {
                         //
@@ -108,7 +113,7 @@ class PatientController extends Controller
                 if ($req->password == $admin->mot_de_pass) {
                     //enregistrer le id dans la session de admin
                     $req->session()->put('admin', $admin->id);
-                    //rediriger vers le patient profile
+                    //rediriger vers le admin 
                     return redirect('/dashboard');
                 } else {
                     //

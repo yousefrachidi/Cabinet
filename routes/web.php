@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PatientController;
 
@@ -35,6 +36,9 @@ Route::get('/user', function () {
 Route::post('/save', [PatientController::class, 'save'])->name('save');
 Route::post('/check', [PatientController::class, 'check'])->name('check');
 Route::get('/logout', [PatientController::class, 'logout'])->name('logout');
+Route::post('/modifier', [PatientController::class, 'updatePatient'])->name('update');
+Route::post('/send', [HomeController::class, 'send'])->name('contactus');
+Route::post('/rendezvous', [HomeController::class, 'rendezvous'])->name('rendezvous');
 
 Route::group(['middleware' => ['authentification']], function () {
     Route::get('/login', [PatientController::class, 'login'])->name('login');

@@ -5600,6 +5600,17 @@ html {
     width: 60%;
   }
 }
+.email_popup {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 200px;
+  text-align: center;
+  background-color: white;
+}
+
 .formlogin {
   background-color: white;
   border-radius: 5px;

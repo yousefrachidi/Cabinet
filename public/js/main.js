@@ -45,3 +45,31 @@ function scrolleffect(){
 
 }
 
+
+//contact form Ajax
+$('.msg_form').on('submit',function(e){
+	e.preventDefault();
+	$.ajax({
+		url:$(this).attr('action'),
+		method:$(this).attr('method'),
+		data:new FormData(this),
+		processData:false,
+		dataType:'json',
+		contentType:false,
+		beforeSend:function(){
+
+		},
+		success:function(data){
+			$('.msg_form')[0].reset();
+			Swal.fire(
+				'Email Envoyer!',
+				'merci pour nous avoir contacté!',
+				'success'
+			  )
+
+
+		},
+
+
+	});
+});
