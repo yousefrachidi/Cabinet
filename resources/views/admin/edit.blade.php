@@ -12,9 +12,8 @@
                 <div class="card">
                     <div class="card-header">Edit admin</div>
                     <div class="card-body">
-                        {{-- ***************** a changer ****************** --}}
-                        <form action="{{url('/profile/1')}}" method="POST" enctype="multipart/form-data">
-
+                        
+                        <form action="/profile/{{session('admin')->id}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="row mt-4 admin-form">

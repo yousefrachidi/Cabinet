@@ -38,7 +38,6 @@ class ReceptionController extends Controller
     }
 
     public function update($status, $id){
-        //dd($status, $id);
         Reception::where('id_reception', $id)->update(['status' => $status]);
         return redirect()->back();
     }   

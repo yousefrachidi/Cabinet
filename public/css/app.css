@@ -16111,3 +16111,8 @@ h3 {
 .res-col-password i:hover {
   cursor: pointer;
 }
+
+.info-per p,
+.info-per h2 {
+  margin: 5px;
+}

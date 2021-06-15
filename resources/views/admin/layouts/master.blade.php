@@ -69,7 +69,7 @@
     <!--sidebar start-->
     <div class="sidebar">
         <div class="profile_info">
-            <a href="/profile/1/edit">
+            <a href="/profile/{{session('admin')->id}}/edit">
                 <img src="images/logo.png" class="profile_image" alt="">
             </a>
             <h4> Admin </h4>

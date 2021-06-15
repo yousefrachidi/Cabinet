@@ -26,8 +26,6 @@ class AdminController extends Controller
         }
 
         if($request->hasFile('image_file')){
-            echo "<script> alert('this is') </script>";
-            //dd($request->all());
             $file = $request->file('image_file');
             $filename = 'boss.jpg';
             $file->move(public_path('images'), $filename);

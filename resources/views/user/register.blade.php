@@ -86,7 +86,7 @@
             @enderror
         </span>
         <div class="form-group user_input">
-            <input type="text" id="cine" name="cine" placeholder="Votre CINE" autocomplete="off" value="{{old('cine')}}">
+            <input type="text" id="cine" name="cin" placeholder="Votre CINE" autocomplete="off" value="{{old('cin')}}">
             <i class="fas fa-address-card" id="cine-icon"></i>
         </div>
 

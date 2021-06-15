@@ -16,6 +16,7 @@ class CreateOrdonnancesTable extends Migration
         Schema::create('ordonnances', function (Blueprint $table) {
             $table->id("id_ordonnance");
             $table->string("cin_patient", 25);
+            $table->unsignedInteger("age");
             $table->unsignedBigInteger('id_admin');
             $table->text('description');
             $table->timestamps();

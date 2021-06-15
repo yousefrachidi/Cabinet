@@ -30,6 +30,7 @@
                         <li><a class="lien active" href="/">Acceuil</a></li>
                         <li><a class="lien" href="#more-info">About</a></li>
                         <li><a class="lien" href="#contact">Contact</a></li>
+                        @if(!session()->has('patient'))
                         <li class="menu">
                             <a class="lien account-lien" href="#"><i class="far fa-user-circle"></i> Account <i class="fas fa-caret-down" id="down-icon"></i></a>
                             <ul class="account_menu">
@@ -41,6 +42,8 @@
                                 </li>
                             </ul>
                         </li>
+                        @endif
+
                     </ul>
                 </div>
             </div>

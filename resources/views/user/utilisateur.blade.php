@@ -5,8 +5,8 @@
     <div class="user_links">
         <a class="user-link" href="/user"><i class="fas fa-chart-pie"></i></a>
         <a class="user-link" href="/consult"><i class="fas fa-calendar-alt"></i></a>
-        <a class="user-link" href="/profile"><i class="fas fa-user-cog"></i></a>
-        <a class="user-link" href=""><i class="fas fa-sign-out-alt"></i></a>
+        <a class="user-link" href="{{route('monprofile')}}"><i class="fas fa-user-cog"></i></a>
+        <a class="user-link" href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i></a>
     </div>
     <div class=" user_profile">
         <div class="user_p">
@@ -15,13 +15,13 @@
                     <img id="profile-image" src="{{asset('images/user.png')}}" alt="" width="60">
                 </div>
                 <div class="user_image_data">
-                    <p>Mourad El Ouasti</p>
-                    <p>Ab4515545</p>
+                    <p>{{$patientInfo['nom']}}</p>
+                    <p>{{$patientInfo['cin']}}</p>
                 </div>
             </div>
             <div class="user_profile_middle">
-                <p>Age: 70ans</p>
-                <p><i style=" color:#0466c8;" class="fas fa-weight"></i> Poid: 80kg</p>
+                <p>Age: {{$patientInfo['age']}}ans</p>
+
             </div>
             <div class="user_profile_bottom">
                 <p><i style=" color:#0466c8;" class="fas fa-ruler-vertical"></i> Taille: 1m70</p>
@@ -45,36 +45,20 @@
                     <h5><i class="fas fa-file-medical"></i> Document Medicale</h5>
                 </div>
                 <table class="table-files" id="table-files">
+                    @foreach ($ordonnances as $ordonnance)
                     <tr>
                         <td>
                             <i class="far fa-file-alt fa-1x"></i> Attestation.pdf
                         </td>
+                        <td>{{$ordonnance->updated_at->format('d/m/y h:i')}}</td>
                         <td>
-                            <a id="telecharger_fichier" href="" title="Telecharger ficher"><i class="fas fa-cloud-download-alt"></i></a>
-                            <a id="afficher_fichier" href="" title="afficher document"><i class="far fa-file-pdf"></i></a>
-                            <a id="supprimer_fichier" href="" title="Supprimer fichier"><i class="fas fa-trash-alt"></i></a>
+                            <a id="telecharger_fichier" href="" title="Telecharger ficher"><i
+                                    class="fas fa-cloud-download-alt"></i></a>
+                            <a id="afficher_fichier" href="" title="afficher document"><i
+                                    class="far fa-file-pdf"></i></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>
-                            <i class="fad fa-file-medical-alt fa-1x"></i> Certificat .pdf
-                        </td>
-                        <td>
-                            <a id="telecharger_fichier" href="" title="Telecharger ficher"><i class="fas fa-cloud-download-alt"></i></a>
-                            <a id="afficher_fichier" href="" title="afficher document"><i class="far fa-file-pdf"></i></a>
-                            <a id="supprimer_fichier" href="" title="Supprimer fichier"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <i class="fad fa-file-medical-alt fa-1x"></i> Certificat .pdf
-                        </td>
-                        <td>
-                            <a id="telecharger_fichier" href="" title="Telecharger ficher"><i class="fas fa-cloud-download-alt"></i></a>
-                            <a id="afficher_fichier" href="" title="afficher document"><i class="far fa-file-pdf"></i></a>
-                            <a id="supprimer_fichier" href="" title="Supprimer fichier"><i class="fas fa-trash-alt"></i></a>
-                        </td>
-                    </tr>
+                    @endforeach
                 </table>
             </div>
 

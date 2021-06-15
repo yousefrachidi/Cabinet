@@ -37,7 +37,9 @@
                         <td>{{$patient->sexe}}</td>
                         <td><a href="patient/{{$patient->cin}}">click here</a></td>
                     </tr>
-                    <?php $i++ ?>
+                    @php
+                        $i++
+                    @endphp
                     @endforeach
                 </tbody>
             </table>
