@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Patient extends Model
+class Ordonnance extends Model
 {
     use HasFactory;
-    
 
     protected $fillable = [
-        'cin',
-        'nom',
-        'email',
+        'cin_patient',
         'age',
-        'tel',
-        'mot_de_pass',
-        'sexe',
-        'image'
+        'id_admin',
+        'description'
     ];
 }

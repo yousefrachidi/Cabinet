@@ -34,11 +34,4 @@ class MedicamentController extends Controller
             'message_success' => $request->nom .' est ajouté à la liste des médicaments'
         ]); 
     }
-
-/*     public function show($id_medicament){
-        $medicament = Medicament::find($id_medicament);
-        return view('admin.medicamentDetailes')->with([
-            'medicament' => $medicament
-        ]);
-    } */
 }

@@ -27,7 +27,6 @@ Route::get('/', function () {
 
 
 
-
 Route::get('/user', function () {
     return view('user.utilisateur');
 });
@@ -56,6 +55,16 @@ Route::group(['middleware' => ['authentification']], function () {
 
 // route partie admin-------------------------------------------------------------------
 
+Route::post('/save', [PatientController::class, 'save'])->name('save');
+Route::post('/check', [PatientController::class, 'check'])->name('check');
+Route::get('/logout', [PatientController::class, 'logout'])->name('logout');
+
+Route::group(['middleware' => ['authentification']], function () {
+    Route::get('/login', [PatientController::class, 'login'])->name('login');
+    Route::get('/register', [PatientController::class, 'register'])->name('register');
+    Route::get('/mon_profile', [PatientController::class, 'monProfile'])->name('monprofile');
+    Route::get('/user', [PatientController::class, 'monstatus'])->name('monstatus');
+});
 
 
 
@@ -82,3 +91,15 @@ Route::post('/reception', [App\Http\Controllers\ReceptionController::class, 'sto
 Route::get('/reception/{status}/{id}', [App\Http\Controllers\ReceptionController::class, 'update']);
 
 Route::resource('medicament', App\Http\Controllers\MedicamentController::class);
+
+Route::get('/patient', [App\Http\Controllers\PatientController::class, 'index']);
+
+Route::get('/patient/{cin}', [App\Http\Controllers\PatientController::class, 'show']); 
+
+Route::post('/ordonnance', [App\Http\Controllers\OrdonnanceController::class, 'store']);
+
+//Route::get('/patient/{cin}', [App\Http\Controllers\PatientController::class, 'show']); 
+
+Route::get('/pdf/{path}/', [App\Http\Controllers\OrdonnanceController::class, 'downloadPDF']);
+
+Route::get('/view/{path}/', [App\Http\Controllers\OrdonnanceController::class, 'viewPDF']);

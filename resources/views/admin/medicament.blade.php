@@ -83,7 +83,9 @@
                         <td>{{$medicament->designation}}</td>
                         <td>{{$medicament->type}}</td>
                     </tr>
-                    <?php $i++ ?>
+                    @php
+                        $i++
+                    @endphp
                     @endforeach
                 </tbody>
             </table>

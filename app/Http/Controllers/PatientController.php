@@ -5,11 +5,28 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Patient;
 use App\Models\Admin;
+use App\Models\Ordonnance;
 use App\Models\Reception;
 use Illuminate\Support\Facades\Hash;
 
 class PatientController extends Controller
 {
+
+
+    public function index(){
+        $patients = Patient::select('cin','nom','age','tel','sexe')->get();
+        return view('admin.patient')->with([
+            'patients' => $patients
+        ]);
+    }
+
+    public function show($cin){ 
+        $patient= Patient::select('cin', 'nom','age')->where('cin', '=', $cin)->first();
+        return view("admin.ordonnance")->with([
+            'patient' => $patient
+        ]);
+    }
+
     function login()
     {
         return view('user.login');
@@ -35,9 +52,11 @@ class PatientController extends Controller
 
     function monstatus()
     {
+        $ordon = ['ordonnances' => Ordonnance::where('cin_patient',session('patient'))->get()];
         $data = ['patientInfo' => Patient::where('cin', '=', session('patient'))->first()];
-        return view('user.utilisateur', $data);
+        return view('user.utilisateur', $data, $ordon);
     }
+    
     function consult()
     {
         return view('user.consultation');
@@ -117,7 +136,7 @@ class PatientController extends Controller
                 //verifier le mot de passe Admin
                 if ($req->password == $admin->mot_de_pass) {
                     //enregistrer le id dans la session de admin
-                    $req->session()->put('admin', $admin->id);
+                    $req->session()->put('admin', $admin);
                     //rediriger vers le admin 
                     return redirect('/dashboard');
                 } else {

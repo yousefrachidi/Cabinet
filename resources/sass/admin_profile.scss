@@ -1,0 +1,35 @@
+
+.img-admin {
+    display: block;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  
+  .admin-form {
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+  }
+  
+  .lab-form {
+    padding-right: 5px !important;
+  }
+  
+  .status-btn {
+    width: 7em;
+  }
+  
+  .res-col-password {
+    width: 15em;
+  }
+  
+  .res-col-password input {
+    border: none;
+    background: transparent;
+    width: 10em;
+  }
+  
+  .res-col-password i:hover {
+    cursor: pointer;
+  }
