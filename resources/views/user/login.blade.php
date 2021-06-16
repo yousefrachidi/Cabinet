@@ -13,7 +13,7 @@
                 <form action="{{route('check')}}" method="post">
                     @csrf
                     @if(Session::get('erreur'))
-                    <div class="alert alert-danger">
+                    <div class="alert alert-danger col-lg-7">
                         {{Session::get('erreur')}}
                     </div>
                     @endif

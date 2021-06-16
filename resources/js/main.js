@@ -31,7 +31,7 @@ function scrolleffect(){
 	const image=document.querySelector('.why_image');
 	
 
-	if(window.scrollY>=400){
+	if(window.scrollY>=350){
 		list.style.opacity='1';
 		list.style.transform='translateX(0px)';
 		list.style.transition='.7s ease-in-out';

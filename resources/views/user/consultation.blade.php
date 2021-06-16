@@ -2,12 +2,7 @@
 
 @section('content')
 <div class="user_consultation_calendar">
-    <div class="user_links">
-        <a class="user-link" href="/user"><i class="fas fa-chart-pie"></i></a>
-        <a class="user-link" href="/consult"><i class="fas fa-calendar-alt"></i></a>
-        <a class="user-link" href="/profile"><i class="fas fa-user-cog"></i></a>
-        <a class="user-link" href=""><i class="fas fa-sign-out-alt"></i></a>
-    </div>
+
     <div class="user_calendar">
         <div class="top_calendar">
             <h5><i class="fas fa-calendar-plus fa-1x"></i> Nouveaux consultation</h5>
@@ -17,7 +12,7 @@
             </form>
         </div>
         <div class="left_calendar">
-            <h5><i class="fad fa-history fa-1x"></i> Historique de Consultation</h5>
+            <h5><i class="fas fa-history fa-1x"></i> Historique de Consultation</h5>
             <div class="table_consultation">
                 <table class="table_calendar">
                     <tr>
@@ -29,9 +24,7 @@
                     <tr>
                         <td>Consultation Le 05/10/2020</td>
                     </tr>
-                    <tr>
-                        <td>Consultation Le 05/10/2020</td>
-                    </tr>
+
                 </table>
             </div>
         </div>
@@ -40,6 +33,7 @@
 
     </div>
 </div>
+<script src="{{asset('js/dycalendar.js')}}"></script>
 <script>
     $("#calendar-date").dateDropper({
         animate: 'true',

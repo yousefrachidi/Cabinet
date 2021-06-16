@@ -2,12 +2,6 @@
 
 @section('content')
 <div class="utilisateur">
-    <div class="user_links">
-        <a class="user-link" href="/user"><i class="fas fa-chart-pie"></i></a>
-        <a class="user-link" href="/consult"><i class="fas fa-calendar-alt"></i></a>
-        <a class="user-link" href="{{route('monprofile')}}"><i class="fas fa-user-cog"></i></a>
-        <a class="user-link" href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i></a>
-    </div>
 
     <div class=" user_profile">
 

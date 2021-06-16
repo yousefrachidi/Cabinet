@@ -5,10 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Patient;
 use App\Models\Admin;
-use App\Models\Reception;
 use App\Models\Ordonnance;
+use App\Models\Reception;
 use Illuminate\Support\Facades\Hash;
-
 
 class PatientController extends Controller
 {
@@ -57,7 +56,12 @@ class PatientController extends Controller
         $data = ['patientInfo' => Patient::where('cin', '=', session('patient'))->first()];
         return view('user.utilisateur', $data, $ordon);
     }
-       
+    
+    function consult()
+    {
+        return view('user.consultation');
+    }
+
 
     function save(Request $req)
     {
@@ -71,6 +75,8 @@ class PatientController extends Controller
             'password_two' => 'required|min:5|max:15',
             'cin' => 'required|unique:patients',
         ]);
+
+
 
         //insertion dans le base de donnees
 
@@ -94,6 +100,10 @@ class PatientController extends Controller
             }
         }
     }
+    function updatePatient(Request $req)
+    {
+        return $req->input();
+    }
 
 
     function check(Request $req)
@@ -109,13 +119,13 @@ class PatientController extends Controller
             if (!$admin) {
                 $reception = Reception::where('email', '=', $req->email)->first();
                 if (!$reception) {
-                    return back()->with('erreur', 'utilisateur non trouve!');
+                    return back()->with('erreur', 'L\'adresse électronique que vous avez saisie n\'est associée à aucun compte!');
                 } else {
                     //verifier le mot de passe Reception
                     if ($req->password == $reception->mot_de_pass) {
                         //enregistrer le id dans la session de Reception
                         $req->session()->put('reception', $reception->id);
-                        //rediriger vers le patient profile
+                        //rediriger vers le Reception 
                         return redirect('/dashboard');
                     } else {
                         //
@@ -127,7 +137,7 @@ class PatientController extends Controller
                 if ($req->password == $admin->mot_de_pass) {
                     //enregistrer le id dans la session de admin
                     $req->session()->put('admin', $admin);
-                    //rediriger vers le patient profile
+                    //rediriger vers le admin 
                     return redirect('/dashboard');
                 } else {
                     //
