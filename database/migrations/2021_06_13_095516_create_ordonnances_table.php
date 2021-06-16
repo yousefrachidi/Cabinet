@@ -18,7 +18,7 @@ class CreateOrdonnancesTable extends Migration
             $table->string("cin_patient", 25);
             $table->unsignedInteger("age");
             $table->unsignedBigInteger('id_admin');
-            $table->text('description');
+            $table->String('description', 50);
             $table->timestamps();
 
             $table->foreign('id_admin')
