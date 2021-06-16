@@ -33,7 +33,7 @@ class ReceptionController extends Controller
         $reception->save();
 
         return redirect()->back()->with([
-            'message_success' => 'un compte d\'accueil pour '. $request->nom .' a été créé'
+            'message_success' => 'un compte d\'accueil pour <b>'. $request->nom .'</b> a été créé'
         ]);
     }
 

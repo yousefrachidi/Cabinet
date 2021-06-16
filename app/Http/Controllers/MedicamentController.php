@@ -31,7 +31,7 @@ class MedicamentController extends Controller
         $medicament->save();
 
         return redirect()->back()->with([
-            'message_success' => $request->nom .' est ajouté à la liste des médicaments'
+            'message_success' =>'<b>'. $request->nom .'</b> est ajouté à la liste des médicaments'
         ]); 
     }
 }

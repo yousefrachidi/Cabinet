@@ -10,7 +10,7 @@
                     </div> 
                 @endif
                 <div class="card">
-                    <div class="card-header">Edit admin</div>
+                    <div class="card-header">Modifier mon profile</div>
                     <div class="card-body">
                         
                         <form action="/profile/{{session('admin')->id}}" method="POST" enctype="multipart/form-data">
@@ -71,9 +71,9 @@
                                     </div>
                                 </div>
                 
-                                <div class="mx-auto">
-                                    <input class="btn btn-primary mb-2"  type="submit" value="Enregistrer"  name="send">
-                                    <a class="btn btn-danger mb-2" href="/dashboard"> Annuler </a>
+                                <div class="mx-auto m-2">
+                                    <input class="btn btn-primary"  type="submit" value="Enregistrer">
+                                    <a class="btn btn-danger" href="/dashboard"> Retour </a>
                                 </div>
                             </div>
                         </form>
