@@ -8,9 +8,10 @@ use PDF;
 
 class OrdonnanceController extends Controller
 {
+    //creer un ordonnance
     public function store(Request $request)
     {
-        $data= array(        
+        $data = array(
             'description' => $request->description,
             'nom_patient' => $request->nom_patient,
             'age' => $request->age
@@ -23,39 +24,39 @@ class OrdonnanceController extends Controller
             'cin_patient' => $request->cin_patient,
             'age' => $request->age,
             'id_admin' => session('admin')->id,
-            'description' => $uniqid . '.pdf' 
+            'description' => $uniqid . '.pdf'
         ]);
         $ordonnance->save();
 
         return redirect('/patient')->with([
-            'message_success' => 'ordonnance pour '. $request->nom_patient .' est ajouté avec success'
+            'message_success' => 'ordonnance pour ' . $request->nom_patient . ' est ajouté avec success'
         ]);
     }
 
-    public function downloadPDF($path){
-        $fullpath = public_path().'\pdf\ordonnances\\'.$path;
+    public function downloadPDF($path)
+    {
+        $fullpath = public_path() . '\pdf\ordonnances\\' . $path;
 
-        if (file_exists($fullpath))
-        {
+        if (file_exists($fullpath)) {
             //dd('is found');
             return response()->download($fullpath, 'ordonnance.pdf');
-        }         
+        }
         return redirect()->back()->with([
             'message_error' => '<b>Fichier</b> non trouvé'
         ]);
     }
 
-    public function viewPDF($path){
-        $fullpath = public_path().'\pdf\ordonnances\\'.$path;
+    public function viewPDF($path)
+    {
+        $fullpath = public_path() . '\pdf\ordonnances\\' . $path;
 
-        if (file_exists($fullpath))
-        {
+        if (file_exists($fullpath)) {
             $headers = [
                 'Content-Type' => 'application/pdf'
             ];
             return response()->file($fullpath, $headers);
-        }         
-        return redirect('/user')>with([
+        }
+        return redirect('/user') > with([
             'message_error' => '<b>Fichier</b> non trouvé'
         ]);
     }

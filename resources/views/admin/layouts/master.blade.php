@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <title>Cabinie</title>
+    <title>Cabinet</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../images/logo.png" />
@@ -69,7 +69,7 @@
     <!--sidebar start-->
     <div class="sidebar">
         <div class="profile_info">
-            <a href="/profile/{{session('admin')->id}}/edit">
+            <a href="/profile/{{session('admin')['id']}}/edit">
                 <img src="images/logo.png" class="profile_image" alt="">
             </a>
             <h4> Admin </h4>
