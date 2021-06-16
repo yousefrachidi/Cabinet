@@ -74,11 +74,10 @@ Route::get('/patient', [App\Http\Controllers\PatientController::class, 'index'])
 
 Route::get('/patient/{cin}', [App\Http\Controllers\PatientController::class, 'show']); 
 
-
 Route::post('/ordonnance', [App\Http\Controllers\OrdonnanceController::class, 'store']);
 
-/* tooooooooooooooooooooooooooooo test */
+Route::get('/patient/{cin}', [App\Http\Controllers\PatientController::class, 'show']); 
 
-Route::get('/test', function(){
-    return view('admin.ordtest');
-});
+Route::get('/pdf/{path}/', [App\Http\Controllers\OrdonnanceController::class, 'downloadPDF']);
+
+Route::get('/view/{path}/', [App\Http\Controllers\OrdonnanceController::class, 'viewPDF']);

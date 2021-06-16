@@ -35,12 +35,12 @@
                                 @csrf
                                 <input type="hidden" name="cin_patient" value="{{$patient->cin}}">
                                 <input type="hidden" name="age" value="{{$patient->age}}">
+                                <input type="hidden" name="nom_patient" value="{{$patient->nom}}">
                                 <textarea id="ordonnance-input" name="description"></textarea>
                                 <input type="submit" value="Enregistrer">
                             </form>
                         </div>
                     </div>
-
                     <h4 class="text-center m-5">Dr <span class="text-uppercase">eder</span> <span
                             class="text-capitalize">amin</span></h4>
                 </div>

@@ -8,7 +8,9 @@
         <a class="user-link" href="{{route('monprofile')}}"><i class="fas fa-user-cog"></i></a>
         <a class="user-link" href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i></a>
     </div>
+
     <div class=" user_profile">
+
         <div class="user_p">
             <div class="user_profile_top">
                 <div class="user_image">
@@ -39,6 +41,11 @@
         </div>
     </div>
     <div class="user_info">
+        @if (session('message_error'))
+        <div class="alert alert-danger" role="alert">
+            {!! session('message_error') !!}
+        </div> 
+        @endif
         <div class="user_info_top">
             <div class="user_document">
                 <div class="document_medical">
@@ -52,9 +59,9 @@
                         </td>
                         <td>{{$ordonnance->updated_at->format('d/m/y h:i')}}</td>
                         <td>
-                            <a id="telecharger_fichier" href="" title="Telecharger ficher"><i
+                            <a id="telecharger_fichier" href="pdf/{{$ordonnance->description}}" title="Telecharger ficher"><i
                                     class="fas fa-cloud-download-alt"></i></a>
-                            <a id="afficher_fichier" href="" title="afficher document"><i
+                            <a id="afficher_fichier" href="view/{{$ordonnance->description}}" title="afficher document"><i
                                     class="far fa-file-pdf"></i></a>
                         </td>
                     </tr>

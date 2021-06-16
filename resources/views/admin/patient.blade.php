@@ -3,6 +3,11 @@
 
 @section('content')
 <div class="content">
+    @if (session('message_success'))
+    <div class="alert alert-success" role="alert">
+        {{ session('message_success') }}
+    </div>
+    @endif
     <div class="card">
         <center>
             <h1>list des patients</h1>
@@ -38,7 +43,7 @@
                         <td><a href="patient/{{$patient->cin}}">click here</a></td>
                     </tr>
                     @php
-                        $i++
+                    $i++
                     @endphp
                     @endforeach
                 </tbody>
