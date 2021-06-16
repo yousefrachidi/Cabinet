@@ -46,7 +46,7 @@
                         </li>
                         @else
                         <li class="menu">
-                            <a class="lien account-lien" href="{{route('monstatus')}}"><i class="far fa-user-circle"></i> Account <i class="fas fa-caret-down" id="down-icon"></i></a>
+                            <a class="lien account-lien"><i class="far fa-user-circle"></i> Account <i class="fas fa-caret-down" id="down-icon"></i></a>
                             <ul class="account_menu">
                                 <li class="drop_item">
                                     <a class="lien drop_lien" href="{{route('monprofile')}}"><i class="fas fa-user-cog"></i> Profile</a>
