@@ -7,14 +7,20 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 { 
-    public function edit($id){
-        $admin = Admin::find($id);
+    public function edit(){
+        $admin = Admin::find((session('admin')->id));
         return view('admin.edit')->with([
             'admin' => $admin
         ]);
     }
 
     public function update(Request $request, $id){
+        $request->validate([
+            'image_file' => 'image|mimes:jpeg,png,jpg|max:2048',
+            'nom' => 'required|min:3',
+            'prenom' => 'required|min:3',
+            'email' => 'required|email',
+        ]);
         $admin = Admin::find($id);
         
         $admin->nom = $request->input('nom');

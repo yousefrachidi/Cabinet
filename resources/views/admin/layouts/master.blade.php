@@ -58,28 +58,26 @@
         </div>
         <div class="mobile_nav_items">
             <a href="dashboard.php"><i class="fas  fa-desktop"></i><span>Dashboard</span></a>
-            <a href="consultation.php"> <i class="far fa-folder-open"></i> <span>Consultation</span></a>
+            <a href="patient"><i class="fas fa-users"></i><span>Patients</span></a>
             <a href="rendez.php"><i class="fas fa-calendar-check"></i> <span>Rendez-vous</span></a>
             <a href="reception.php"><i class="fas fa-user-plus"></i><span>Reception</span></a>
             <a href="medicament"><i class="fas fa-pills"></i><span>Médicaments</span></a>
-            <a href="patient"><i class="fas fa-users"></i><span>Patient</span></a>
         </div>
     </div>
     <!--mobile navigation bar end-->
     <!--sidebar start-->
     <div class="sidebar">
         <div class="profile_info">
-            <a href="/profile/{{session('admin')->id}}/edit">
+            <a href="/profile/edit">
                 <img src="images/logo.png" class="profile_image" alt="">
             </a>
             <h4> Admin </h4>
         </div>
         <a href="dashboard" id="dash"><i class="fas   fa-desktop"></i><span>Dashboard</span></a>
-        <a href="consultation" id="consl"> <i class="far  fa-folder-open"></i> <span>Consultation</span></a>
+        <a href="patient" id="pat"><i class="fas fa-users"></i><span>Patients</span></a>
         <a href="rendez" id="rende"><i class="fas fa-calendar-check"></i> <span>Rendez-vous</span></a>
         <a href="reception" id="recep"><i class="fas fa-user-plus"></i><span>Reception</span></a>
         <a href="medicament" id="med"><i class="fas fa-pills"></i><span>Médicaments</span></a>
-        <a href="patient" id="pat"><i class="fas fa-users"></i><span>Patient</span></a>
     </div>
     <!--sidebar end-->
 

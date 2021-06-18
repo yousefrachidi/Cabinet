@@ -5,7 +5,7 @@
 <div class="content">
     @if (session('message_success'))
     <div class="alert alert-success" role="alert">
-        {{ session('message_success') }}
+        {!! session('message_success') !!}
     </div>
     @endif
     <div class="card">
