@@ -8,20 +8,24 @@ use App\Models\Admin;
 use App\Models\Ordonnance;
 use App\Models\Reception;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class PatientController extends Controller
 {
 
 
-    public function index(){
-        $patients = Patient::select('cin','nom','age','tel','sexe')->get();
+    public function index()
+    {
+        $patients = Patient::select('cin', 'nom', 'age', 'tel', 'sexe')->get();
         return view('admin.patient')->with([
             'patients' => $patients
         ]);
     }
 
-    public function show($cin){ 
-        $patient= Patient::select('cin', 'nom','age')->where('cin', '=', $cin)->first();
+    public function show($cin)
+    {
+        $patient = Patient::select('cin', 'nom', 'age')->where('cin', '=', $cin)->first();
         return view("admin.ordonnance")->with([
             'patient' => $patient
         ]);
@@ -31,6 +35,7 @@ class PatientController extends Controller
     {
         return view('user.login');
     }
+
     function register()
     {
         return view('user.register');
@@ -46,17 +51,17 @@ class PatientController extends Controller
 
     function monProfile()
     {
-        $data = ['patientInfo' => Patient::where('cin', '=', session('patient'))->first()];
+        $data = ['patient' => Patient::find(session('patient'))];
         return view('user.profile', $data);
     }
 
     function monstatus()
     {
-        $ordon = ['ordonnances' => Ordonnance::where('cin_patient',session('patient'))->get()];
+        $ordon = ['ordonnances' => Ordonnance::where('cin_patient', session('patient'))->get()];
         $data = ['patientInfo' => Patient::where('cin', '=', session('patient'))->first()];
         return view('user.utilisateur', $data, $ordon);
     }
-    
+
     function consult()
     {
         return view('user.consultation');
@@ -91,7 +96,7 @@ class PatientController extends Controller
             $patient->tel = $req->tel;
             $patient->mot_de_pass = $req->password_two;
             $patient->sexe = $req->sexe;
-            $patient->image = null;
+
             $save = $patient->save();
             if ($save) {
                 return back()->with('success', 'Votre compte est creer avec succes!');
@@ -100,12 +105,55 @@ class PatientController extends Controller
             }
         }
     }
-    function updatePatient(Request $req)
+
+
+    //mis a jour du compte patient*************************************************
+    function updatePatient(Request $req, $id)
     {
-        return $req->input();
+
+        $patient = Patient::find($id);
+
+        //verifier si l'utilisateur a changer l'image
+
+        if ($req->hasFile('userimage')) {
+            $extAllowed = ['jpg', 'png', 'jpeg'];
+            $image = $req->file('userimage');
+
+            //recuperer l'extension de l'image choisit par le patient
+            $ext = strtolower($image->getClientOriginalExtension());
+
+            //verifier l'extension de l'image_________________
+            if (!in_array($ext, $extAllowed, true)) {
+                return back()->with('erreur', 'Veuiller choisir un format JPG/PNG/JPGE');
+            }
+            $filename = time() . '.' . $ext;
+            $image->move('images/userimages/', $filename);
+            $oldimage = 'images/userimages/' . $patient->image;
+            File::delete($oldimage);
+            $patient->image = $filename;
+        }
+
+
+        // verifier le changement de mot de passe_____________
+        if ($req->password_one != null) {
+            if ($req->password_one == $req->password_two) {
+                $patient->mot_de_pass = $req->password_one;
+            } else {
+                return back()->with('erreur', 'Le mot de passe n\'est pas identiques!');
+            }
+        }
+
+        $patient->nom = $req->nom;
+        $patient->email = $req->email;
+        $patient->cin = $req->cin;
+        $patient->age = $req->age;
+        $patient->tel = $req->tel;
+        $patient->save();
+        return back()->with('success', 'Votre profile est modifier avec success');
     }
 
 
+    //function to check if user is patient,admin or reception**********************
     function check(Request $req)
     {
         $req->validate([
@@ -147,8 +195,8 @@ class PatientController extends Controller
         } else {
             //verifier le mot de passe de patient
             if ($req->password == $patient->mot_de_pass) {
-                //enregistrer le cin dans la session de patient
-                $req->session()->put('patient', $patient->cin);
+                //enregistrer le id dans la session de patient
+                $req->session()->put('patient', $patient->id);
                 //rediriger vers le patient profile
                 return redirect('/mon_profile');
             } else {

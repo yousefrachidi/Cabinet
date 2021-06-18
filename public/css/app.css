@@ -5650,6 +5650,7 @@ html {
   display: flex;
   justify-content: center;
   background-color: #f8f9fa;
+  margin-bottom: 1rem;
 }
 
 .form_modify_info {

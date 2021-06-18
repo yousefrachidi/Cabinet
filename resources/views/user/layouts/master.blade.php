@@ -59,7 +59,7 @@
                                     <a class="lien drop_lien" href="{{route('monstatus')}}"><i class="fas fa-chart-pie"></i> Status</a>
                                 </li>
                                 <li class="drop_item">
-                                    <a class="lien drop_lien" href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                                    <a class="lien drop_lien" href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i> Quitter</a>
                                 </li>
 
                             </ul>

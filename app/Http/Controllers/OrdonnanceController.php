@@ -16,7 +16,7 @@ class OrdonnanceController extends Controller
             'nom_patient' => $request->nom_patient,
             'age' => $request->age
         );
-        $uniqid =  uniqid('', true);
+        $uniqid =  'Ordonnance-' . uniqid('', true);
 
         $pdf = PDF::loadView('admin.pdfgenerator', compact('data'));
         $pdf->save('pdf/ordonnances/' . $uniqid . '.pdf');

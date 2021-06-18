@@ -14,7 +14,8 @@ class CreateRendezVousTable extends Migration
     public function up()
     {
         Schema::create('rendez_vous', function (Blueprint $table) {
-            $table->id('id_rendez_vous'); 
+            $table->id()->autoIncrement();
+            $table->foreignId('id_patient')->constrained('patients');
             $table->dateTime('start_event');
             $table->dateTime('end_event');
             $table->string('type');

@@ -38,7 +38,7 @@
         @if (session('message_error'))
         <div class="alert alert-danger" role="alert">
             {!! session('message_error') !!}
-        </div> 
+        </div>
         @endif
         <div class="user_info_top">
             <div class="user_document">
@@ -49,14 +49,12 @@
                     @foreach ($ordonnances as $ordonnance)
                     <tr>
                         <td>
-                            <i class="far fa-file-alt fa-1x"></i> Attestation.pdf
+                            <i class="far fa-file-alt fa-1x"></i> {{explode('-',$ordonnance->description)[0]}}.pdf
                         </td>
                         <td>{{$ordonnance->updated_at->format('d/m/y h:i')}}</td>
                         <td>
-                            <a id="telecharger_fichier" href="pdf/{{$ordonnance->description}}" title="Telecharger ficher"><i
-                                    class="fas fa-cloud-download-alt"></i></a>
-                            <a id="afficher_fichier" href="view/{{$ordonnance->description}}" title="afficher document"><i
-                                    class="far fa-file-pdf"></i></a>
+                            <a id="telecharger_fichier" href="pdf/{{$ordonnance->description}}" title="Telecharger ficher"><i class="fas fa-cloud-download-alt"></i></a>
+                            <a id="afficher_fichier" href="view/{{$ordonnance->description}}" title="afficher document"><i class="far fa-file-pdf"></i></a>
                         </td>
                     </tr>
                     @endforeach

@@ -36,7 +36,7 @@ Route::get('/user', function () {
 Route::post('/save', [PatientController::class, 'save'])->name('save');
 Route::post('/check', [PatientController::class, 'check'])->name('check');
 Route::get('/logout', [PatientController::class, 'logout'])->name('logout');
-Route::post('/modifier', [PatientController::class, 'updatePatient'])->name('modifierCompte');
+
 Route::post('/send', [HomeController::class, 'send'])->name('contactus');
 Route::post('/rendezvous', [HomeController::class, 'rendezvous'])->name('rendezvous');
 
@@ -46,6 +46,7 @@ Route::group(['middleware' => ['authentification']], function () {
     Route::get('/mon_profile', [PatientController::class, 'monProfile'])->name('monprofile');
     Route::get('/user', [PatientController::class, 'monstatus'])->name('monstatus');
     Route::get('/consult', [PatientController::class, 'consult'])->name('consult');
+    Route::post('/modifier/{id}', [PatientController::class, 'updatePatient'])->name('modifierCompte');
 });
 
 
@@ -94,7 +95,7 @@ Route::resource('medicament', App\Http\Controllers\MedicamentController::class);
 
 Route::get('/patient', [App\Http\Controllers\PatientController::class, 'index']);
 
-Route::get('/patient/{cin}', [App\Http\Controllers\PatientController::class, 'show']); 
+Route::get('/patient/{cin}', [App\Http\Controllers\PatientController::class, 'show']);
 
 Route::post('/ordonnance', [App\Http\Controllers\OrdonnanceController::class, 'store']);
 
