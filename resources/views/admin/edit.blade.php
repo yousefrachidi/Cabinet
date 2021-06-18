@@ -10,7 +10,7 @@
                     </div> 
                 @endif
                 <div class="card">
-                    <div class="card-header">Edit admin</div>
+                    <div class="card-header">Modifier mon profile</div>
                     <div class="card-body">
                         
                         <form action="/profile/{{session('admin')->id}}" method="POST" enctype="multipart/form-data">
@@ -25,6 +25,7 @@
                                     <div id="change_image"></div>
                                     <div id = 'info'></div>
                                     <input type="file" name="image_file" id="image_file">
+                                    <small class="text-danger">{{ $errors->first('image_file')}}</small>
                                 </div>
                 
                                 <div class="col-lg-8">
@@ -32,6 +33,7 @@
                                         <label class="col-md-2 lab-form col-form-label" for="nom"> Nom </label>
                                         <div class="col-md-9">
                                             <input class="form-control" type="text" value="{{$admin->nom ?? old('name')}}" name="nom" id="nom">
+                                            <small class="text-danger">{{ $errors->first('nom')}}</small>
                                         </div>
                                     </div>
                  
@@ -39,6 +41,7 @@
                                         <label class="col-md-2 lab-form col-form-label" for="prenom"> Prénom </label>
                                         <div class="col-md-9">
                                             <input class="form-control" type="text" value="{{$admin->prenom ?? old('prenom')}}" name="prenom" id="prenom">
+                                            <small class="text-danger">{{ $errors->first('prenom')}}</small>
                                         </div>
                                     </div>
                 
@@ -46,6 +49,7 @@
                                         <label class="col-md-2 lab-form col-form-label" for="email"> E-mail </label>
                                         <div class="col-md-9">
                                             <input class="form-control" type="email" value="{{$admin->email ?? old('email')}}" name="email" id="email">
+                                            <small class="text-danger">{{ $errors->first('email')}}</small>
                                         </div>
                                     </div>
                 
@@ -71,9 +75,9 @@
                                     </div>
                                 </div>
                 
-                                <div class="mx-auto">
-                                    <input class="btn btn-primary mb-2"  type="submit" value="Enregistrer"  name="send">
-                                    <a class="btn btn-danger mb-2" href="/dashboard"> Annuler </a>
+                                <div class="mx-auto m-2">
+                                    <input class="btn btn-primary"  type="submit" value="Enregistrer">
+                                    <a class="btn btn-danger" href="/dashboard"> Retour </a>
                                 </div>
                             </div>
                         </form>

@@ -29,7 +29,7 @@ class OrdonnanceController extends Controller
         $ordonnance->save();
 
         return redirect('/patient')->with([
-            'message_success' => 'ordonnance pour ' . $request->nom_patient . ' est ajouté avec success'
+            'message_success' => 'ordonnance pour <b>' . $request->nom_patient . '</b> est ajouté avec success'
         ]);
     }
 

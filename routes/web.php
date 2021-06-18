@@ -69,7 +69,7 @@ Route::group(['middleware' => ['authentification']], function () {
 
 
 
-Route::get('/profile/{id}/edit', [App\Http\Controllers\AdminController::class, 'edit']);
+Route::get('/profile/edit', [App\Http\Controllers\AdminController::class, 'edit']);  
 
 Route::PUT('/profile/{id}', [App\Http\Controllers\AdminController::class, 'update']);
 
@@ -81,7 +81,7 @@ Route::get('/consultation',  function () {
     return view('admin\consultation');
 });
 
-Route::get('/rendez',  function () {
+Route::get('/rendez',  function () { 
     return view('admin\rendez');
 });
 
@@ -98,8 +98,6 @@ Route::get('/patient', [App\Http\Controllers\PatientController::class, 'index'])
 Route::get('/patient/{cin}', [App\Http\Controllers\PatientController::class, 'show']);
 
 Route::post('/ordonnance', [App\Http\Controllers\OrdonnanceController::class, 'store']);
-
-//Route::get('/patient/{cin}', [App\Http\Controllers\PatientController::class, 'show']); 
 
 Route::get('/pdf/{path}/', [App\Http\Controllers\OrdonnanceController::class, 'downloadPDF']);
 

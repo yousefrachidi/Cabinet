@@ -1,6 +1,5 @@
 @extends('admin.layouts.master')
 
-
 @section('content')
 <div class="content">
     <div class="card">
@@ -8,10 +7,9 @@
             <h1>Ajouter médicament</h1>
         </center>
 
-
         @if (session('message_success'))
         <div class="alert alert-success" role="alert">
-            {{ session('message_success') }}
+            {!! session('message_success') !!}
         </div>
         @endif
 

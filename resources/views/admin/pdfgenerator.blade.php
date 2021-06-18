@@ -74,7 +74,7 @@
             <span class="text-capitalize">{{session('admin')->prenom}}</span>
         </h2>
         <div>Médcine géneral</div>
-        <div>mobile: 0566661222</div>
+        <div>mobile: {{session('admin')->telephone}}</div>
         <div>{{session('admin')->email}}</div>
     </div>
     <div class="date-ord">le: {{date("d-m-Y")}}</div>
