@@ -28,7 +28,7 @@
                 </div>
                 <span class="text-danger">@error('tel'){{$message}}@enderror</span>
                 <div class="form-group">
-                    <input type="text" id="calendar" name="calendar" value="">
+                    <input type="date" id="calendar" name="calendar" value="">
                     <i class="far fa-calendar-alt" id="calendar-icon"></i>
                 </div>
                 <div class="form-group">

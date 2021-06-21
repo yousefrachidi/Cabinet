@@ -1,7 +1,7 @@
 @extends('user.layouts.master')
 
 @section('content')
-<div class="user_parametre">
+<div class="user_parametre mb-5">
 
     <form action="/modifier/{{$patient['id']}}" method="POST" class="form_modify_info" enctype="multipart/form-data">
         <h5>Modifier votre compte:</h5>

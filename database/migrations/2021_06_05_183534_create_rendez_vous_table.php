@@ -14,12 +14,18 @@ class CreateRendezVousTable extends Migration
     public function up()
     {
         Schema::create('rendez_vous', function (Blueprint $table) {
-            $table->id()->autoIncrement();
-            $table->foreignId('id_patient')->constrained('patients');
-            $table->dateTime('start_event');
-            $table->dateTime('end_event');
-            $table->string('type');
+            $table->id();
+            $table->unsignedBigInteger('id_patient');
+            $table->string('date_rendezvous');
+            $table->dateTime('start_event')->nullable();
+            $table->dateTime('end_event')->nullable();
+            $table->string('type')->nullable();
             $table->timestamps();
+
+            $table->foreign('id_patient')
+                ->references('id')
+                ->on('patients')
+                ->onDelete('cascade');
         });
     }
 

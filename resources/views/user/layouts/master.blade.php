@@ -56,7 +56,7 @@
                                     <a class="lien drop_lien" href="{{route('consult')}}"><i class="fas fa-user-md"></i> Consultation</a>
                                 </li>
                                 <li class="drop_item">
-                                    <a class="lien drop_lien" href="{{route('monstatus')}}"><i class="fas fa-chart-pie"></i> Status</a>
+                                    <a class="lien drop_lien" href="{{route('monstatus')}}"><i class="fas fa-chart-pie"></i> Document</a>
                                 </li>
                                 <li class="drop_item">
                                     <a class="lien drop_lien" href="{{route('logout')}}"><i class="fas fa-sign-out-alt"></i> Quitter</a>

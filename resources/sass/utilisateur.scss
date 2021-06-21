@@ -1,10 +1,11 @@
 .utilisateur {
-    margin-top: 3.5rem;
+    margin-top: 4rem;
     display: flex;
     justify-content: center;
     height: 80vh;
     background-color: #f8f9fa;
     position: relative;
+    margin-bottom: 3rem;
 }
 .user_links {
     position: absolute;
@@ -29,7 +30,7 @@
 .user_profile {
     margin-left: 5rem;
     margin-top: 2rem;
-    height: 220px;
+    height: 250px;
     width: 400px;
     background-color: white;
     border-radius: 5px;
@@ -45,9 +46,7 @@
     justify-content: left;
 }
 .user_image {
-    border: 5px solid #1e6091;
     border-radius: 50%;
-    border: 1px solid #001d3d;
 }
 .user_image_data {
     padding-left: 0.5rem;
@@ -92,7 +91,8 @@
     width: 500px;
     margin-top: 2rem;
     padding: 1rem;
-    height: 427px;
+    height: 250px;
+
     background-color: white;
     border-radius: 5px;
     box-shadow: 0px 2px 1px -1px rgb(0 0 0 / 20%),

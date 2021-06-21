@@ -57,8 +57,9 @@ class PatientController extends Controller
 
     function monstatus()
     {
+
         $ordon = ['ordonnances' => Ordonnance::where('cin_patient', session('patient'))->get()];
-        $data = ['patientInfo' => Patient::where('cin', '=', session('patient'))->first()];
+        $data = ['patientInfo' => Patient::find(session('patient'))];
         return view('user.utilisateur', $data, $ordon);
     }
 

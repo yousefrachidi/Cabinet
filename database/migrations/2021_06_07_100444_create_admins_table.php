@@ -20,6 +20,7 @@ class CreateAdminsTable extends Migration
             $table->string('mot_de_pass');
             $table->string('nom', 30);
             $table->string('prenom', 30);
+            $table->string('tel', 30);
             $table->string('image')->default('boss.jpg');
             $table->timestamps();
         });

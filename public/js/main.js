@@ -73,3 +73,33 @@ $('.msg_form').on('submit',function(e){
 
 	});
 });
+
+
+//rendez vous form Ajax__________________________
+
+$('.form-consultation').on('submit',function(e){
+	e.preventDefault();
+	$.ajax({
+		url:$(this).attr('action'),
+		method:$(this).attr('method'),
+		data:new FormData(this),
+		processData:false,
+		dataType:'json',
+		contentType:false,
+		beforeSend:function(){
+
+		},
+		success:function(data){
+			//$('.form-consultation')[0].reset();
+			Swal.fire(
+				'Rendez vous a été créé avec succès!',
+				'On va vous appeler on quelque minute',
+				'success'
+			  )
+
+
+		},
+
+
+	});
+});
