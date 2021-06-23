@@ -38,7 +38,7 @@
                         <div class="col">
                             <form action="/ordonnance" method="post">
                                 @csrf
-                                <input type="hidden" name="cin_patient" value="{{$patient->cin}}">
+                                <input type="hidden" name="id_patient" value="{{$patient->id}}">
                                 <input type="hidden" name="age" value="{{$patient->age}}">
                                 <input type="hidden" name="nom_patient" value="{{$patient->nom}}">
                                 <textarea id="ordonnance-input" name="description"></textarea>

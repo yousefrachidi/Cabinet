@@ -11,21 +11,23 @@ class OrdonnanceController extends Controller
     //creer un ordonnance
     public function store(Request $request)
     {
+        //dd($request->all());
         $data = array(
             'description' => $request->description,
             'nom_patient' => $request->nom_patient,
             'age' => $request->age
         );
         $uniqid =  'Ordonnance-' . uniqid('', true);
-
         $pdf = PDF::loadView('admin.pdfgenerator', compact('data'));
         $pdf->save('pdf/ordonnances/' . $uniqid . '.pdf');
         $ordonnance = new Ordonnance([
-            'cin_patient' => $request->cin_patient,
+            'id_patient' => $request->id_patient,
             'age' => $request->age,
             'id_admin' => session('admin')->id,
             'description' => $uniqid . '.pdf'
         ]);
+
+        //dd($ordonnance);
         $ordonnance->save();
 
         return redirect('/patient')->with([

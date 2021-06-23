@@ -26,7 +26,7 @@ class PatientController extends Controller
 
     public function show($cin)
     {
-        $patient = Patient::select('cin', 'nom', 'age')->where('cin', '=', $cin)->first();
+        $patient = Patient::select('id', 'cin', 'nom', 'age')->where('cin', '=', $cin)->first();
         return view("admin.ordonnance")->with([
             'patient' => $patient
         ]);
@@ -59,7 +59,7 @@ class PatientController extends Controller
     function monstatus()
     {
 
-        $ordon = ['ordonnances' => Ordonnance::where('cin_patient', session('patient'))->get()];
+        $ordon = ['ordonnances' => Ordonnance::where('id_patient', session('patient'))->get()];
         $data = ['patientInfo' => Patient::find(session('patient'))];
         return view('user.utilisateur', $data, $ordon);
     }
