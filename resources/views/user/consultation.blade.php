@@ -8,7 +8,7 @@
             <h5><i class="fas fa-calendar-plus fa-1x"></i> Nouveaux consultation</h5>
             <form action="/rendez_vous/{{session('patient')}}" method="POST" class="form_calendar">
                 @csrf
-                <input type="text" id="calendar-date" name="calendar_date">
+                <input type="text" id="calendar-date" name="calendar_date" data-large-mode="true" data-lang="fr" data-min-year="2020">
                 <input type="submit" name="new-consultation" id="btn-consultation" value="Valider">
             </form>
         </div>
@@ -65,11 +65,20 @@
             },
             success: function(data) {
                 //$('.form_calendar')[0].reset();
-                Swal.fire(
-                    'Rendez vous a été créé avec succès!',
-                    'On va vous appeler on quelque minute',
-                    'success'
-                )
+                if (data => status == 1) {
+                    Swal.fire(
+                        'Rendez vous a été créé avec succès!',
+                        'On va vous appeler on quelque minute',
+                        'success'
+                    )
+                } else {
+                    Swal.fire(
+                        'Le rendez vous n a pas été créé!',
+                        'ressayer plus tard!',
+                        'error'
+                    )
+
+                }
 
 
             },

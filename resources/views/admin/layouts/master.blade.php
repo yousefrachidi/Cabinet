@@ -40,7 +40,7 @@
             <i class="fas fa-bars" id="sidebar_btn"></i>
         </label>
         <div class="left_area">
-            <h3>Mini <span>Project</span></h3>
+            <h3> <span>Medicale</span></h3>
         </div>
         <div class="right_area">
             <a href="#" class="logout_btn">Logout</a>

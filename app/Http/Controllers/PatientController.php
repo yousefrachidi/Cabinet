@@ -84,8 +84,12 @@ class PatientController extends Controller
         $rendezvous = new RendezVous();
         $rendezvous->id_patient = session('patient');
         $rendezvous->date_rendezvous = $req->calendar_date;
-        $rendezvous->save();
-        return response()->json(['status' => 1, 'message' => 'Rendez vous creer avec success! Merci']);
+
+        if ($rendezvous->save()) {
+            return response()->json(['status' => 1, 'message' => 'Rendez vous creer avec success! Merci']);
+        } else {
+            return response()->json(['status' => 0, 'message' => 'Rendez vous creer avec success! Merci']);
+        }
     }
 
 

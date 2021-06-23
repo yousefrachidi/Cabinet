@@ -6070,6 +6070,10 @@ html {
   padding: 0.5rem 0;
 }
 
+.table_calendar tr {
+  border-bottom: 1px solid lightgrey;
+}
+
 .calendrier {
   padding: 1rem;
   font-size: 1rem;

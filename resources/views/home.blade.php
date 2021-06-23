@@ -28,7 +28,7 @@
                 </div>
                 <span class="text-danger">@error('tel'){{$message}}@enderror</span>
                 <div class="form-group">
-                    <input type="date" id="calendar" name="calendar" value="">
+                    <input type="text" id="calendar" name="calendar" value="" data-large-mode="true" data-lang="fr" data-min-year="2020">
                     <i class="far fa-calendar-alt" id="calendar-icon"></i>
                 </div>
                 <div class="form-group">
@@ -150,13 +150,16 @@
 </section>
 
 <script src="{{asset('js/main.js')}}"></script>
+
 <script>
     $("#calendar").dateDropper({
         animate: 'true',
-        lang: 'fr',
         format: 'DD/MM/YYYY',
         minYear: 2020,
-        theme: 'leaf'
+        expandable: true,
+        theme: 'leaf',
+        large: true
     });
 </script>
+
 @endsection
