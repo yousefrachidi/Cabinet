@@ -7,6 +7,7 @@ use App\Models\Patient;
 use App\Models\Admin;
 use App\Models\Ordonnance;
 use App\Models\Reception;
+use App\Models\RendezVous;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
@@ -63,12 +64,32 @@ class PatientController extends Controller
         return view('user.utilisateur', $data, $ordon);
     }
 
+
+
+    //page consultation
     function consult()
     {
-        return view('user.consultation');
+        $id = session('patient');
+        $rendezvous = RendezVous::where('id_patient', '=', $id)->get();
+
+        return view("user.consultation")->with([
+            'rendezvous' => $rendezvous
+        ]);
+    }
+
+    //creer un nouveau rendez vous:
+
+    function newRendezvous(Request $req, $id)
+    {
+        $rendezvous = new RendezVous();
+        $rendezvous->id_patient = session('patient');
+        $rendezvous->date_rendezvous = $req->calendar_date;
+        $rendezvous->save();
+        return response()->json(['status' => 1, 'message' => 'Rendez vous creer avec success! Merci']);
     }
 
 
+    //nouveau patient
     function save(Request $req)
     {
         $req->validate([

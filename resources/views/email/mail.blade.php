@@ -9,10 +9,10 @@
 </head>
 
 <body>
-    <h1>contact message</h1>
+    <h1>Medicale</h1>
     <p>Mr {{$data['nom']}},</p>
-    <p>Pour valider votre Medicale Pass et accéder à tous les
-        services, vous devez cliquer sur le lien suivant :</p>
+    <p>Pour valider votre compte sur notre site Medicale et accéder à tous les
+        services, vous devez cliquer sur le lien suivant est identifier:</p>
     <a href="{{route('login')}}">Authentifier</a>
     <p>Est entrer vos informaion:</p>
     <p>Email:{{$data['email']}}</p>
