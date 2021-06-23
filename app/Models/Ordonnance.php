@@ -10,7 +10,7 @@ class Ordonnance extends Model
     use HasFactory;
 
     protected $fillable = [
-        'cin_patient',
+        'id_patient',
         'age',
         'id_admin',
         'description'

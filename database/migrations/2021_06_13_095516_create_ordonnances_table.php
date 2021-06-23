@@ -15,7 +15,8 @@ class CreateOrdonnancesTable extends Migration
     {
         Schema::create('ordonnances', function (Blueprint $table) {
             $table->id("id_ordonnance");
-            $table->string("cin_patient", 25);
+            //$table->string("cin_patient", 25);
+            $table->unsignedBigInteger('id_patient');
             $table->unsignedInteger("age");
             $table->unsignedBigInteger('id_admin');
             $table->string('description', 50);
@@ -25,12 +26,13 @@ class CreateOrdonnancesTable extends Migration
                   ->references('id')
                   ->on('admins')
                   ->onDelete('cascade');
-
-            $table->foreign('cin_patient')
-                  ->references('cin')
+ 
+            $table->foreign('id_patient')
+                  ->references('id')
                   ->on('patients')
                   ->onUpdate('cascade')
                   ->onDelete('cascade');
+                  
         });
     }
 
