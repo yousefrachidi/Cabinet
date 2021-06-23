@@ -6,8 +6,9 @@
     <div class="user_calendar">
         <div class="top_calendar">
             <h5><i class="fas fa-calendar-plus fa-1x"></i> Nouveaux consultation</h5>
-            <form action="" method="POST" class="form_calendar">
-                <input type="text" id="calendar-date" name="calendar-date">
+            <form action="/rendez_vous/{{session('patient')}}" method="POST" class="form_calendar">
+                @csrf
+                <input type="text" id="calendar-date" name="calendar_date">
                 <input type="submit" name="new-consultation" id="btn-consultation" value="Valider">
             </form>
         </div>
@@ -15,15 +16,12 @@
             <h5><i class="fas fa-history fa-1x"></i> Historique de Consultation</h5>
             <div class="table_consultation">
                 <table class="table_calendar">
+
+                    @foreach($rendezvous as $rendez)
                     <tr>
-                        <td>Consultation Le 05/10/2020</td>
+                        <td>Consultation Le {{$rendez->date_rendezvous}}</td>
                     </tr>
-                    <tr>
-                        <td>Consultation Le 05/10/2020</td>
-                    </tr>
-                    <tr>
-                        <td>Consultation Le 05/10/2020</td>
-                    </tr>
+                    @endforeach
 
                 </table>
             </div>
@@ -51,6 +49,33 @@
         prevnextbutton: 'show',
 
 
+    });
+
+    $('.form_calendar').on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: $(this).attr('action'),
+            method: $(this).attr('method'),
+            data: new FormData(this),
+            processData: false,
+            dataType: 'json',
+            contentType: false,
+            beforeSend: function() {
+
+            },
+            success: function(data) {
+                //$('.form_calendar')[0].reset();
+                Swal.fire(
+                    'Rendez vous a été créé avec succès!',
+                    'On va vous appeler on quelque minute',
+                    'success'
+                )
+
+
+            },
+
+
+        });
     });
 </script>
 @endsection

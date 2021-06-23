@@ -5812,6 +5812,10 @@ html {
   box-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
 }
 
+.user_profile img {
+  border-radius: 50%;
+}
+
 .user_profile_top {
   background-color: white;
   padding: 1rem;
