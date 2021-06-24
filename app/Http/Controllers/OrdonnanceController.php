@@ -11,7 +11,6 @@ class OrdonnanceController extends Controller
     //creer un ordonnance
     public function store(Request $request)
     {
-        //dd($request->all());
         $data = array(
             'description' => $request->description,
             'nom_patient' => $request->nom_patient,
@@ -27,7 +26,6 @@ class OrdonnanceController extends Controller
             'description' => $uniqid . '.pdf'
         ]);
 
-        //dd($ordonnance);
         $ordonnance->save();
 
         return redirect('/patient')->with([
@@ -40,7 +38,6 @@ class OrdonnanceController extends Controller
         $fullpath = public_path() . '\pdf\ordonnances\\' . $path;
 
         if (file_exists($fullpath)) {
-            //dd('is found');
             return response()->download($fullpath, 'ordonnance.pdf');
         }
         return redirect()->back()->with([
