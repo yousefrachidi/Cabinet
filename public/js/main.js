@@ -87,15 +87,22 @@ $('.form-consultation').on('submit',function(e){
 		dataType:'json',
 		contentType:false,
 		beforeSend:function(){
+			$('.btn-envoyer').html('Enregistrer....');
 
 		},
 		success:function(data){
 			//$('.form-consultation')[0].reset();
-			Swal.fire(
-				'Rendez vous a été créé avec succès!',
-				'On va vous appeler on quelque minute',
-				'success'
-			  )
+			if(data.redirect){
+				window.location.href=data.redirect;
+			}else{
+				$('.btn-envoyer').html('Prendre un RDV ');
+				Swal.fire(
+					'Rendez vous a été créé avec succès!',
+					'On va vous appeler on quelque minute',
+					'success'
+			  	)
+			}
+			
 
 
 		},

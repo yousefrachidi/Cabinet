@@ -70,8 +70,8 @@ class HomeController extends Controller
 
 
 
-        if (session('patient')) {
-            return redirect('/consult');
+        if (session()->has('patient')) {
+            return response()->json(['redirect' => '/consult']);
         } else {
             //creer un nouveau Patient
             $patient = new Patient();
