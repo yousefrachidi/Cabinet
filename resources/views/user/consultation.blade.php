@@ -8,12 +8,12 @@
             <h5><i class="fas fa-calendar-plus fa-1x"></i> Nouveaux consultation</h5>
             <form action="/rendez_vous/{{session('patient')}}" method="POST" class="form_calendar">
                 @csrf
-                <input type="text" id="calendar-date" name="calendar_date" data-large-mode="true" data-lang="fr" data-min-year="2020">
+                <input type="text" id="calendar-date" name="calendar_date" data-large-mode="true" data-lang="fr" data-min-year="2021">
                 <input type="submit" name="new-consultation" id="btn-consultation" value="Valider">
             </form>
         </div>
         <div class="left_calendar">
-            <h5><i class="fas fa-history fa-1x"></i> Historique de Consultation</h5>
+            <h5 class="text-center"><i class="fas fa-history fa-1x"></i> Historique de Consultation</h5>
             <div class="table_consultation">
                 <table class="table_calendar">
 

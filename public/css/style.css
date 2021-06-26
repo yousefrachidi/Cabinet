@@ -192,9 +192,16 @@ label #sidebar_btn:hover {
     display: none;
 }
 
-.card {
+.dashboard {
     margin-top: 0.5em;
-    padding: 10px;
+
+    margin: 0 auto;
+    padding: 1rem;
+}
+.dashboard .col-sm-3 {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
 }
 
 .content .card p {

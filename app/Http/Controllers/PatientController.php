@@ -17,8 +17,8 @@ class PatientController extends Controller
 
     public function __construct()
     {
-       $this->middleware('auth');
-   }
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -62,9 +62,11 @@ class PatientController extends Controller
 
     function monstatus()
     {
+        $id = session('patient');
+        $patient = Patient::find($id);
 
-        $ordon = ['ordonnances' => Ordonnance::where('id_patient', session('patient'))->get()];
-        $data = ['patientInfo' => Patient::find(session('patient'))];
+        $ordon = ['ordonnances' => Ordonnance::where('cin_patient', $patient->cin)->get()];
+        $data = ['patientInfo' => $patient];
         return view('user.utilisateur', $data, $ordon);
     }
 
@@ -159,7 +161,10 @@ class PatientController extends Controller
             $filename = time() . '.' . $ext;
             $image->move('images/userimages/', $filename);
             $oldimage = 'images/userimages/' . $patient->image;
-            File::delete($oldimage);
+
+            if ($patient->image != 'user.png') {
+                File::delete($oldimage);
+            }
             $patient->image = $filename;
         }
 
@@ -196,14 +201,17 @@ class PatientController extends Controller
             $admin = Admin::where('email', '=', $req->email)->first();
             if (!$admin) {
                 $reception = Reception::where('email', '=', $req->email)->first();
+
                 if (!$reception) {
                     return back()->with('erreur', 'L\'adresse électronique que vous avez saisie n\'est associée à aucun compte!');
                 } else {
                     //verifier le mot de passe Reception
                     if ($req->password == $reception->mot_de_pass) {
+
                         //enregistrer le id dans la session de Reception
-                        $req->session()->put('reception', $reception->id);
-                        //rediriger vers le Reception
+                        $req->session()->put('reception', $reception->id_reception);
+                        //rediriger vers le Reception 
+
                         return redirect('/dashboard');
                     } else {
                         //
@@ -228,7 +236,7 @@ class PatientController extends Controller
                 //enregistrer le id dans la session de patient
                 $req->session()->put('patient', $patient->id);
                 //rediriger vers le patient profile
-                return redirect('/mon_profile');
+                return redirect('/consult');
             } else {
                 //
                 return back()->with('erreur', 'Mot de passe incorrect!');
