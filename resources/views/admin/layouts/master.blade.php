@@ -3,9 +3,10 @@
 
 <head>
     <title>Cabinet</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="../images/logo.png" />
+    <link rel="icon" href="images/logo.png" />
 
     <!--  Boostrap -->
     <link rel="stylesheet" href="css/app.css">
@@ -40,7 +41,7 @@
             <i class="fas fa-bars" id="sidebar_btn"></i>
         </label>
         <div class="left_area">
-            <h3> <span>Medicale</span></h3>
+            <h3>Mini <span>Project</span></h3>
         </div>
         <div class="right_area">
             <a href="{{route('quitter')}}" class="logout_btn">Logout</a>

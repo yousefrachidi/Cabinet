@@ -16,7 +16,7 @@ $(document).ready(function () {
         },
         fixedWeekCount: false,
         views: {
-            // format title 
+            // format title
             week: {
                 titleFormat: 'MMM YYYY ',
                 columnFormat: "ddd D",
@@ -36,15 +36,15 @@ $(document).ready(function () {
             week: 'semaine',
             month: 'mois'
         },
-        hiddenDays: [0],   //hiden Sunday 
-        showNonCurrentDates: false,  // 
+        hiddenDays: [0],   //hiden Sunday
+        showNonCurrentDates: false,  //
         slotDuration: '00:15:00',
         slotLabelFormat: "HH:mm",
         defaultView: 'agendaWeek',
         allDaySlot: false,
         minTime: "08:00:00",
         maxTime: "17:00:00",
-        events: '../controller/rendezvous-controller.php?action=load',
+        events: 'rendez/list',
         selectable: true,
         selectHelper: true,
         monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
@@ -64,60 +64,69 @@ $(document).ready(function () {
 
             var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
             var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-       
+
             var id = event.id;
             $.ajax({
-                url: "../controller/rendezvous-controller.php?action=update",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  },
+                url: "rendez/update",
                 type: "POST",
                 data: {
-                    ID_RENDEZ: id ,   
+                    ID_RENDEZ : id ,
                     start_event: start,
                     end_event: end
                 },
                 success: function () {
                     calendar.fullCalendar('refetchEvents');
-                     
+
                     UIkit.notification({ message: 'Event Updated', status: 'success', timeout: 1000 });
                 }
             })
         },
 
         eventDrop: function (event) {
-            
+
             var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
             var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-             
+
             var id = event.id;
             $.ajax({
-                url: "../controller/rendezvous-controller.php?action=update",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                  },
+                url: "rendez/update",
                 type: "POST",
                 data: {
-                    ID_RENDEZ: id ,   
+                    ID_RENDEZ: id ,
                     start_event: start,
                     end_event: end
-                    
+
                 },
                 success: function (data) {
                     console.log(data);
                     calendar.fullCalendar('refetchEvents');
-                     
+
                     UIkit.notification({ message: 'Event Updated', status: 'success', timeout: 1000 });
                 }
             });
         },
-        
+
 
         eventClick: function (event) {
 
             UIkit.modal.confirm('Are you sure you want to remove '+event.title +" ?").then(()=>{
                 //click ok
                  var id = event.id;
-                 
+
                 $.ajax({
-                    url: "../controller/rendezvous-controller.php?action=delete",
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                      },
+                    url: "rendez/delete",
                     type: "POST",
                     data: {
-                        ID_RENDEZ: id
+                        id_rendez_vous: id
                     },
                     success: function (data) {
                         console.log(data);
@@ -130,22 +139,22 @@ $(document).ready(function () {
             },
             function(){
                 // click cancel
-                
+
 
             }
-            
+
             ) ;
-                 
-               
-              
-               
-                 
- 
+
+
+
+
+
+
         },
 
     });
 
-    
+
 
 
     $('.uk-close').on('click', function () {
@@ -154,7 +163,7 @@ $(document).ready(function () {
     });
 
     $('.uk-save').on('click', function () {
-        
+
         $('#modal-sections').removeClass('uk-open').hide();
 
         cin_ = $('#cin').val();
@@ -163,7 +172,7 @@ $(document).ready(function () {
 
     });
 
-    //romove scroll 
+    //romove scroll
     $('tbody .fc-scroller').css({'color':'red','height':  "1000vh"});
 
 
@@ -177,19 +186,21 @@ function ajouteRen(type, cin) {
         var start = $.fullCalendar.formatDate(start_, "Y-MM-DD HH:mm:ss");
         var end = $.fullCalendar.formatDate(end_, "Y-MM-DD HH:mm:ss");
         $.ajax({
-            url: "../controller/rendezvous-controller.php?action=insert",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              },
+            url: "rendez/add",
             type: "POST",
             data: {
-                CIN: cin,
-                ID_RECEPTION: 1,
-                ID_RENDEZ: null,
+                cin: cin,
+                id_reception: 1,
                 start_event: start,
                 end_event: end,
-                TYPE: type
+                type: type
             },
             success: function (data) {
 
-                if (data != "Erreur") {
+                if (data > 0 ) {
                     calendar.fullCalendar('refetchEvents');
                     UIkit.notification({ message: 'Added Successfully...', status: 'success', timeout: 1000 });
                 }
@@ -197,6 +208,7 @@ function ajouteRen(type, cin) {
                     UIkit.notification({ message: 'Cin introvable ', status: 'warning', timeout: 1000 });
 
                 }
+
 
             }
         })

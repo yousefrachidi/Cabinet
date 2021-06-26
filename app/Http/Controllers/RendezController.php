@@ -9,9 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 class RendezController extends Controller
 {
-    //
-
-
+    
 
     public function show()
     {
@@ -32,7 +30,12 @@ class RendezController extends Controller
             })->get();
 
 
+<<<<<<< HEAD
         return $data;
+=======
+
+          return $data;
+>>>>>>> 3ca004b1e6b2225c9b2349346354ebb63ab3bd66
     }
 
     public function add(Request $r)

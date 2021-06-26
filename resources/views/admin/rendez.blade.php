@@ -33,8 +33,6 @@
                     </div>
 
                 </form>
-
-
             </div>
             <div class="uk-modal-footer uk-text-right">
                 <button class="uk-button uk-button-default uk-close" type="button">Cancel</button>

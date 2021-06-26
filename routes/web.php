@@ -73,7 +73,19 @@ Route::middleware(['adminauth'])->group(function () {
 
     Route::resource('medicament', App\Http\Controllers\MedicamentController::class);
 
+ 
+Route::get('/rendez/list', [App\Http\Controllers\RendezController::class, 'show']);
+Route::post('/rendez/add', [App\Http\Controllers\RendezController::class, 'add']);
+Route::post('/rendez/update', [App\Http\Controllers\RendezController::class, 'update']);
+Route::post('/rendez/delete', [App\Http\Controllers\RendezController::class, 'remove']);
+
+
+
+
+Route::get('/reception', [App\Http\Controllers\ReceptionController::class, 'index']);
+
     Route::get('/patient', [App\Http\Controllers\PatientController::class, 'index']);
+
 
     Route::get('/patient/{cin}', [App\Http\Controllers\PatientController::class, 'show']);
 
