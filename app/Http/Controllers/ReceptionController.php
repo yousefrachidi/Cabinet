@@ -7,12 +7,18 @@ use Illuminate\Http\Request;
 
 class ReceptionController extends Controller
 {
+
+    public function __construct()
+    {
+       $this->middleware('auth');
+   }
+
     public function index(){
         $receptions = Reception::all();
         return view('admin.reception')->with([
             'receptions' => $receptions
         ]);
-    }   
+    }
 
     public function store(Request $request)
     {
@@ -40,5 +46,5 @@ class ReceptionController extends Controller
     public function update($status, $id){
         Reception::where('id_reception', $id)->update(['status' => $status]);
         return redirect()->back();
-    }   
+    }
 }

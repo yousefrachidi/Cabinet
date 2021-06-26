@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\File;
 class PatientController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -219,7 +223,7 @@ class PatientController extends Controller
                 if ($req->password == $admin->mot_de_pass) {
                     //enregistrer le id dans la session de admin
                     $req->session()->put('admin', $admin);
-                    //rediriger vers le admin 
+                    //rediriger vers le admin
                     return redirect('/dashboard');
                 } else {
                     //
