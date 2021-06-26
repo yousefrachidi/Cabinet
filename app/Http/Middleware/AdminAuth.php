@@ -16,11 +16,11 @@ class AdminAuth
      */
     public function handle(Request $request, Closure $next)
     {
-        /*
+
         if (session()->has('patient')) {
             return back();
         }
-        /*
+
 
         if ((session()->has('admin') || session()->has('reception')) && ($request->path() == 'login' || $request->path() == 'register')) {
 
@@ -32,7 +32,7 @@ class AdminAuth
             return redirect('/login')->with('erreur', 'Identifier vous!');
         }
 
-*/
+
 
         return $next($request);
     }

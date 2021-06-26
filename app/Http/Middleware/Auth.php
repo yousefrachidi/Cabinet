@@ -18,7 +18,7 @@ class Auth
     {
 
         //interdit les admins et les receptions de consulter les page utilisateur
-        /*
+
         if (session()->has('reception') || session()->has('admin')) {
             return back();
         }
@@ -32,7 +32,7 @@ class Auth
         if (session()->has('patient') && ($request->path() == 'login' || $request->path() == 'register')) {
             return back();
         }
-*/
+
 
         return $next($request);
     }
