@@ -34,7 +34,7 @@
                         <li><a class="lien" href="#contact">Contact</a></li>
                         @if(!session()->has('patient'))
                         <li class="menu">
-                            <a class="lien account-lien" href="#"><i class="far fa-user-circle"></i> Account <i class="fas fa-caret-down" id="down-icon"></i></a>
+                            <a class="lien account-lien"><i class="far fa-user-circle"></i> Account <i class="fas fa-caret-down" id="down-icon"></i></a>
                             <ul class="account_menu">
                                 <li class="drop_item">
                                     <a class="lien drop_lien" href="/login"><i class="fas fa-sign-in-alt"></i> Connecter</a>
@@ -100,10 +100,10 @@
         <div class="f_lien">
             <h5>Liens utiles:</h5>
             <div class="url">
-                <a href="">Acceuil</a>
-                <a href="">Contact</a>
-                <a href="">Inscription</a>
-                <a href="">Connecter</a>
+                <a href="/">Acceuil</a>
+                <a href="#contact">Contact</a>
+                <a href="/register">Inscription</a>
+                <a href="/login">Connecter</a>
             </div>
         </div>
         <div class="social">

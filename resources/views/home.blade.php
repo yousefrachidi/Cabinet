@@ -28,7 +28,7 @@
                 </div>
                 <span class="text-danger">@error('tel'){{$message}}@enderror</span>
                 <div class="form-group">
-                    <input type="text" id="calendar" name="calendar" value="" data-large-mode="true" data-lang="fr" data-min-year="2020">
+                    <input type="text" id="calendar" name="calendar" value="" data-large-mode="true" data-lang="fr" data-min-year="2021">
                     <i class="far fa-calendar-alt" id="calendar-icon"></i>
                 </div>
                 <div class="form-group">
@@ -131,7 +131,7 @@
                 <span class="text-danger erreur-text nom_erreur"></span>
 
                 <div class="form-g">
-                    <input type="text" id="tel-contact" placeholder="Votre telephone" autocomplete="off" name="tel">
+                    <input type="tel" id="tel-contact" placeholder="Votre telephone" autocomplete="off" name="tel">
                     <i class="fas fa-phone-alt icon-c" id="icontel"></i>
                 </div>
                 <span class="text-danger erreur-text tel_erreur"></span>

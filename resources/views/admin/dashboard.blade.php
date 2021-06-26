@@ -5,43 +5,51 @@
 
 <div class="content">
 
-   
+
     <H1> Dashboard </H1>
-    <div class="card">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, recusandae totam aut in sunt qui libero
-            officiis molestiae tempore mollitia consequuntur dignissimos architecto dolor adipisci minus distinctio ut
-            quisquam rerum! Deleniti tempora animi sunt eum quis similique eos ab aliquid reprehenderit id dolorem in
-            eligendi vero dolor, vitae earum quasi quam velit doloribus perspiciatis doloremque sed. Optio nam
-            laudantium asperiores doloribus, quia consectetur excepturi sed adipisci amet esse, doloremque ex
-            necessitatibus earum, veniam nesciunt blanditiis quos quis consequuntur assumenda error? Voluptates cum
-            dolores quam velit, facere architecto libero eum molestiae ducimus saepe veniam magnam consequuntur laborum
-            optio illum reiciendis iusto. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but
-            also the leap into electronic typesetting, remaining essentially unchanged.</p>
+    <div class="text-center dashboard">
+        <div class="col-sm-3">
+            <div class="card text-white bg-dark">
+                <div class="card-header">Patients</div>
+                <div class="card-body">
+                    <h5 class="card-text text-white">{{$countPatient}} Total Patient</h5>
+                    <a href="/patient" class="btn btn-primary">Patients</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card text-white bg-dark">
+                <div class="card-header">Nombre Rendez vous</div>
+                <div class="card-body">
+                    <h5 class="card-text text-white">{{$countRendezVous}} Total</h5>
+                    <a href="/rendez" class="btn btn-primary">Rendez vous</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-3">
+            <div class="card text-white bg-dark">
+                <div class="card-header">Reception </div>
+                <div class="card-body">
+                    <h5 class="card-title text-white">{{$countReception}} Réceptionniste</h5>
+                    <a href="/reception" class="btn btn-primary">Reception</a>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="card">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, recusandae totam aut in sunt qui libero
-            officiis molestiae tempore mollitia consequuntur dignissimos architecto dolor adipisci minus distinctio ut
-            quisquam rerum! Deleniti tempora animi sunt eum quis similique eos ab aliquid reprehenderit id dolorem in
-            eligendi vero dolor, vitae earum quasi quam velit doloribus perspiciatis doloremque sed. Optio nam
-            laudantium asperiores doloribus, quia consectetur excepturi sed adipisci amet esse, doloremque ex
-            necessitatibus earum, veniam nesciunt blanditiis quos quis consequuntur assumenda error? Voluptates cum
-            dolores quam velit, facere architecto libero eum molestiae ducimus saepe veniam magnam consequuntur laborum
-            optio illum reiciendis iusto. Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-            Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-            galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but
-            also the leap into electronic typesetting, remaining essentially unchanged.</p>
+
     </div>
 
 </div>
 
 
 
-  <!-- add class for element A -->
-  <script>
-  $('#dash').addClass("activePg");
- </script> 
+<!-- add class for element A -->
+<script>
+    $('#dash').addClass("activePg");
+</script>
 
 @endsection

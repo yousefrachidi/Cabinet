@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class Auth
+class AdminAuth
 {
     /**
      * Handle an incoming request.
@@ -16,22 +16,22 @@ class Auth
      */
     public function handle(Request $request, Closure $next)
     {
-
-        //interdit les admins et les receptions de consulter les page utilisateur
-
-        if (session()->has('reception') || session()->has('admin')) {
+        if (session()->has('patient')) {
             return back();
         }
 
 
-        if (!session()->has('patient') && ($request->path() != 'login' && $request->path() != 'register')) {
+        if ((session()->has('admin') || session()->has('reception')) && ($request->path() == 'login' || $request->path() == 'register')) {
+
+            return back();
+        }
+
+
+        if ((!session()->has('admin') && !session()->has('reception')) && ($request->path() != 'login' || $request->path() != 'register')) {
             return redirect('/login')->with('erreur', 'Identifier vous!');
         }
 
 
-        if (session()->has('patient') && ($request->path() == 'login' || $request->path() == 'register')) {
-            return back();
-        }
 
         return $next($request);
     }
