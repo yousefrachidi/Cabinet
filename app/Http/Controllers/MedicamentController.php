@@ -7,19 +7,18 @@ use Illuminate\Http\Request;
 
 class MedicamentController extends Controller
 {
-    public function __construct()
-    {
-       $this->middleware('auth');
-   }
 
-    public function index(){
+
+    public function index()
+    {
         $medicament = Medicament::all();
         return view('admin.medicament')->with([
             'medicaments' => $medicament
         ]);
     }
 
-    public function store(Request  $request){
+    public function store(Request  $request)
+    {
 
         $request->validate([
             'nom' => 'required',
@@ -28,14 +27,14 @@ class MedicamentController extends Controller
         ]);
 
         $medicament = new Medicament([
-            'nom' => $request->nom ,
+            'nom' => $request->nom,
             'designation' => $request->designation,
             'type' => $request->type
         ]);
         $medicament->save();
 
         return redirect()->back()->with([
-            'message_success' =>'<b>'. $request->nom .'</b> est ajouté à la liste des médicaments'
+            'message_success' => '<b>' . $request->nom . '</b> est ajouté à la liste des médicaments'
         ]);
     }
 }

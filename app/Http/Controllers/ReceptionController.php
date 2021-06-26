@@ -8,12 +8,10 @@ use Illuminate\Http\Request;
 class ReceptionController extends Controller
 {
 
-    public function __construct()
-    {
-       $this->middleware('auth');
-   }
 
-    public function index(){
+
+    public function index()
+    {
         $receptions = Reception::all();
         return view('admin.reception')->with([
             'receptions' => $receptions
@@ -39,11 +37,12 @@ class ReceptionController extends Controller
         $reception->save();
 
         return redirect()->back()->with([
-            'message_success' => 'un compte d\'accueil pour <b>'. $request->nom .'</b> a été créé'
+            'message_success' => 'un compte d\'accueil pour <b>' . $request->nom . '</b> a été créé'
         ]);
     }
 
-    public function update($status, $id){
+    public function update($status, $id)
+    {
         Reception::where('id_reception', $id)->update(['status' => $status]);
         return redirect()->back();
     }

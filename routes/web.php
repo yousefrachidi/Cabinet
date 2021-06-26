@@ -34,7 +34,7 @@ Route::get('/user', function () {
 });
 
 
-
+Route::get('/login', [PatientController::class, 'login'])->name('login');
 Route::post('/save', [PatientController::class, 'save'])->name('save');
 Route::post('/check', [PatientController::class, 'check'])->name('check');
 Route::get('/logout', [PatientController::class, 'logout'])->name('logout');
@@ -43,7 +43,7 @@ Route::post('/send', [HomeController::class, 'send'])->name('contactus');
 Route::post('/rendezvous', [HomeController::class, 'rendezvous'])->name('rendezvous');
 
 Route::group(['middleware' => ['authentification']], function () {
-    Route::get('/login', [PatientController::class, 'login'])->name('login');
+
     Route::get('/register', [PatientController::class, 'register'])->name('register');
     Route::get('/mon_profile', [PatientController::class, 'monProfile'])->name('monprofile');
     Route::get('/user', [PatientController::class, 'monstatus'])->name('monstatus');
@@ -64,8 +64,6 @@ Route::middleware(['adminauth'])->group(function () {
 
 
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('mydashboard');
-
-
 
     Route::get('/reception', [App\Http\Controllers\ReceptionController::class, 'index']);
 
