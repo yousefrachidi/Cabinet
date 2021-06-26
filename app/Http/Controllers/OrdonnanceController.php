@@ -7,10 +7,15 @@ use Illuminate\Http\Request;
 use PDF;
 
 class OrdonnanceController extends Controller
-{
+{    public function __construct()
+        {
+           $this->middleware('auth');
+       }
     //creer un ordonnance
     public function store(Request $request)
     {
+
+
         $data = array(
             'description' => $request->description,
             'nom_patient' => $request->nom_patient,
